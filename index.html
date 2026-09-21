@@ -332,31 +332,113 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
   .js .rv,.js .hero .h-in,.js .hero-ph,.js .ph img,.js .paper-stage .pm-stamp{opacity:1!important;transform:none!important}
   .wheat *{stroke-dashoffset:0!important}}
+
+/* ---- přepínač jazyků, užší menu ---- */
+.navlinks{gap:1.25rem;margin-left:1.3rem}
+.navlinks a{font-size:.84rem}
+.lang{display:flex;align-items:center}
+.lang button{background:none;border:0;font:inherit;font-size:.7rem;letter-spacing:.14em;color:var(--muted);cursor:pointer;padding:.3rem .4rem;position:relative;transition:color .2s}
+.lang button:hover{color:var(--ink)}
+.lang button.on{color:var(--gold-ink)}
+.lang button.on::after{content:"";position:absolute;left:.4rem;right:.4rem;bottom:0;height:1px;background:var(--gold)}
+.lang button+button::before{content:"";position:absolute;left:-.05rem;top:.5rem;bottom:.5rem;width:1px;background:var(--rule)}
+@media (max-width:1120px){ .navmeta .btn{display:none} }
+
+/* ---- průvodce pro celiaky ---- */
+.guide{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.qa{margin:0;display:grid}
+.qa > div{padding-block:1.25rem;border-top:1px solid var(--rule)}
+.qa > div:last-child{border-bottom:1px solid var(--rule)}
+.qa dt{font-family:var(--disp);font-size:1.32rem;font-weight:600;line-height:1.25;padding-left:1.4rem;position:relative;margin-bottom:.4rem}
+.qa dt::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+.qa dd{margin:0 0 0 1.4rem;color:var(--ink-soft);font-size:.96rem;max-width:56ch}
+.guide .ph{position:sticky;top:6rem}
+.guide .ph img{aspect-ratio:3/4;object-fit:cover;width:100%}
+
+/* ---- kreslená mapka ---- */
+.map{margin:0;background:var(--sand-2);border:1px solid var(--rule);padding:clamp(1rem,2.5vw,1.5rem);position:relative}
+.map::after{content:"";position:absolute;inset:8px;border:1px solid rgba(184,146,78,.45);pointer-events:none}
+.map svg{width:100%;height:auto;display:block}
+.map .st{fill:none;stroke:var(--gold-ink);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.map .st2{stroke-width:1.1;opacity:.6}
+.map .lbl{font-family:var(--disp);font-style:italic;font-size:15px;fill:var(--ink-soft)}
+.map .lbl.b{font-style:normal;font-weight:700;font-size:17px;fill:var(--brown)}
+.map .lbl.s{font-family:var(--sans);font-style:normal;font-size:9px;letter-spacing:2px;fill:var(--muted)}
+.map .water{fill:rgba(94,112,89,.14);stroke:var(--sage);stroke-width:1.2}
+.map .sq{fill:rgba(184,146,78,.12)}
+.map .pin{fill:var(--gold-ink)}
+.map .pulse{fill:none;stroke:var(--gold-ink);stroke-width:1.2;transform-box:fill-box;transform-origin:center;opacity:0}
+.map figcaption{margin-top:.8rem;font-size:.8rem;color:var(--muted);text-align:center}
+.js .map .st,.js .map .water{stroke-dasharray:900;stroke-dashoffset:900}
+.js .map.in .st,.js .map.in .water{animation:draw 1.6s cubic-bezier(.3,.6,.2,1) forwards;animation-delay:calc(var(--i,0) * .12s)}
+.js .map .lbl,.js .map .pin,.js .map .sq{opacity:0;transition:opacity .7s ease 1.1s}
+.js .map.in .lbl,.js .map.in .pin,.js .map.in .sq{opacity:1}
+.js .map.in .pulse{animation:pulse 2.6s ease-out 1.6s infinite}
+@keyframes pulse{0%{transform:scale(.5);opacity:.6}100%{transform:scale(2.6);opacity:0}}
+
+/* ---- objednávka dortu ---- */
+.cake{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.cf{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.cf .f{display:flex;flex-direction:column;gap:.4rem}
+.cf .f.full{grid-column:1/-1}
+.cf label{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--muted)}
+.cf input,.cf select,.cf textarea{font-family:var(--sans);font-size:1rem;color:var(--ink);background:transparent;border:0;border-bottom:1px solid rgba(51,38,28,.3);padding:.55rem .1rem;border-radius:0;transition:border-color .2s;-webkit-user-select:text;user-select:text}
+.cf input:focus,.cf select:focus,.cf textarea:focus{outline:none;border-bottom-color:var(--gold-ink)}
+.cf select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 12px) 1.05rem,calc(100% - 7px) 1.05rem;background-size:5px 5px;background-repeat:no-repeat;padding-right:1.6rem}
+.cf textarea{resize:vertical;min-height:3.4rem;line-height:1.5}
+.cf .err{grid-column:1/-1;font-size:.85rem;color:#9A3B2B;min-height:1.2em}
+.cf .act{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:1rem}
+.cf .act small{font-size:.8rem;color:var(--muted)}
+.cf .ok{grid-column:1/-1;background:var(--sage-soft);border-left:2px solid var(--sage);padding:1rem 1.1rem;font-size:.92rem;line-height:1.55;color:var(--sage-deep)}
+.cf .ok b{display:block;margin-bottom:.25rem;color:var(--ink)}
+.cake-side{background:var(--sand-2);padding:clamp(1.3rem,3vw,1.9rem);border-top:2px solid var(--gold)}
+.cake-side h3{font-size:1.5rem;margin-bottom:.8rem}
+.cake-side ul{margin:0;padding:0;list-style:none;display:grid;gap:.6rem}
+.cake-side li{padding-left:1.3rem;position:relative;font-size:.95rem;color:var(--ink-soft)}
+.cake-side li::before{content:"";position:absolute;left:0;top:.75em;width:8px;height:1px;background:var(--gold)}
+.cake-side .price{margin-top:1.2rem;font-family:var(--disp);font-size:1.6rem;font-weight:600}
+.cake-side .price small{font-family:var(--sans);font-size:.78rem;font-weight:400;color:var(--muted);letter-spacing:.06em;margin-left:.4rem}
+
+@media (max-width:900px){
+  .guide,.cake{grid-template-columns:1fr}
+  .cf{grid-template-columns:1fr}
+  .guide .ph{position:static}
+  .guide .ph img{aspect-ratio:3/2}
+}
+@media (max-width:640px){
+  .navtel{display:none}
+  .lang button{padding:.3rem .3rem;font-size:.66rem}
+}
 </style>
 </head>
 <body>
 
 <div class="demobar">
   <div class="wrap">
-    <b>Návrh webu</b>
-    <span>Tohle není oficiální web bistra. Je to nezávazná ukázka od filsns s.r.o. Fotky jsou ilustrační, údaje posbírané z veřejných zdrojů.</span>
-    <a href="#nabidka">Kdo to poslal →</a>
+    <b data-i18n="demo.tag">Návrh webu</b>
+    <span data-i18n="demo.text">Tohle není oficiální web bistra. Je to nezávazná ukázka od filsns s.r.o. Fotky jsou ilustrační, údaje posbírané z veřejných zdrojů.</span>
+    <a href="#nabidka" data-i18n="demo.link">Kdo to poslal →</a>
   </div>
 </div>
 
 <nav class="nav" id="nav">
   <div class="wrap">
-    <a class="brand" href="#top"><b>U Vrzky</b><span>100 % bezlepkové</span></a>
+    <a class="brand" href="#top"><b>U Vrzky</b><span data-i18n="brand.sub">100 % bezlepkové</span></a>
     <div class="navlinks" id="navlinks">
-      <a href="#listek">Lístek</a>
-      <a href="#kuchyne">Jak vaříme</a>
-      <a href="#navsteva">Kde nás najdete</a>
-      <a href="#akce">Akce a oslavy</a>
+      <a href="#listek" data-i18n="nav.listek">Lístek</a>
+      <a href="#kuchyne" data-i18n="nav.kuchyne">Jak vaříme</a>
+      <a href="#pruvodce" data-i18n="nav.pruvodce">Pro celiaky</a>
+      <a href="#navsteva" data-i18n="nav.navsteva">Kde nás najdete</a>
+      <a href="#akce" data-i18n="nav.akce">Akce</a>
+      <a href="#dort" data-i18n="nav.dort">Dorty</a>
     </div>
     <div class="navmeta">
+      <div class="lang" id="lang" aria-label="Jazyk">
+        <button type="button" data-lang="cs" class="on">CZ</button><button type="button" data-lang="en">EN</button><button type="button" data-lang="de">DE</button>
+      </div>
       <a class="navtel" href="tel:+420734718428">734 718 428</a>
-      <a class="btn" href="#navsteva">Otevírací doba</a>
-      <button class="navtoggle" id="navtoggle" aria-expanded="false" aria-controls="navlinks">Menu</button>
+      <a class="btn" href="#navsteva" data-i18n="nav.hours">Otevírací doba</a>
+      <button class="navtoggle" id="navtoggle" aria-expanded="false" aria-controls="navlinks" data-i18n="nav.toggle">Menu</button>
     </div>
   </div>
 </nav>
@@ -365,19 +447,19 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
   <div class="wrap">
     <div>
       <p class="eyebrow h-in">Jindřichův Hradec · Svatojánská 144</p>
-      <h1 class="h-in">Celý lístek.<br><em>Bez lepku.</em> Bez ptaní.</h1>
-      <p class="hero-sub h-in">Rodinné bistro v centru Hradce. Objednat si můžete cokoliv z lístku, lepek u nás nenajdete. Snídaně, obědy, čerstvě pečené bagety a dorty.</p>
+      <h1 class="h-in" data-i18n="hero.h1">Celý lístek.<br><em>Bez lepku.</em> Bez ptaní.</h1>
+      <p class="hero-sub h-in" data-i18n="hero.sub">Rodinné bistro v centru Hradce. Objednat si můžete cokoliv z lístku, lepek u nás nenajdete. Snídaně, obědy, čerstvě pečené bagety a dorty.</p>
       <div class="hero-cta h-in">
-        <a class="btn big" href="#listek">Podívat se na lístek</a>
-        <a class="btn big line" href="tel:+420734718428">Zavolat a objednat</a>
+        <a class="btn big" href="#listek" data-i18n="hero.cta1">Podívat se na lístek</a>
+        <a class="btn big line" href="tel:+420734718428" data-i18n="hero.cta2">Zavolat a objednat</a>
       </div>
       <div class="hero-stat h-in">
-        <span><b>5,0</b> z 45 hodnocení na Firmy.cz</span>
-        <span>Vaří <b>Iveta Vrzáková</b></span>
-        <span>Jídlo <b>s sebou</b> do REkrabiček</span>
+        <span data-i18n="hero.st1"><b>5,0</b> z 45 hodnocení na Firmy.cz</span>
+        <span data-i18n="hero.st2">Vaří <b>Iveta Vrzáková</b></span>
+        <span data-i18n="hero.st3">Jídlo <b>s sebou</b> do REkrabiček</span>
       </div>
     </div>
-    <figure class="ph hero-ph"><img class="hero-img" src="img/hero.jpg" alt="Snídaňový talíř s vejci, zeleninou a rajčaty na světlé keramice" width="1800" height="1350" fetchpriority="high"></figure>
+    <figure class="ph hero-ph"><img class="hero-img" src="img/hero.jpg" alt="Snídaňový talíř s vejci, zeleninou a rajčaty na světlé keramice" data-i18n-alt="alt.hero" width="1800" height="1350" fetchpriority="high"></figure>
   </div>
 </header>
 
@@ -400,10 +482,10 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     <path style="--i:15" class="x" d="M28 36L146 328"/>
   </svg>
   <div class="wrap">
-    <h2>V téhle kuchyni není mouka. Vůbec žádná.</h2>
+    <h2 data-i18n="claim.h2">V téhle kuchyni není mouka. Vůbec žádná.</h2>
     <div>
-      <p>Většina restaurací má „bezlepkovou variantu“. A vy pak doufáte, že ji nevaří na stejné pánvi a nekrájí na stejném prkně. U nás se ptát nemusíte.</p>
-      <p>Bistro je bezlepkové celé. Lístek, vitrína i všechno pečivo. Nemáme bezlepkový koutek, máme bezlepkový dům. A když nemůžete laktózu, řekněte to při objednávce, poradíme si.</p>
+      <p data-i18n="claim.p1">Většina restaurací má „bezlepkovou variantu“. A vy pak doufáte, že ji nevaří na stejné pánvi a nekrájí na stejném prkně. U nás se ptát nemusíte.</p>
+      <p data-i18n="claim.p2">Bistro je bezlepkové celé. Lístek, vitrína i všechno pečivo. Nemáme bezlepkový koutek, máme bezlepkový dům. A když nemůžete laktózu, řekněte to při objednávce, poradíme si.</p>
     </div>
   </div>
 </section>
@@ -411,12 +493,12 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
 <section class="sec" id="listek">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="eyebrow">Lístek</p>
-      <h2>Co u nás dostanete</h2>
-      <p class="lede">Nic nekupujeme hotové. Bagety pečeme každé ráno a omáčky, dezerty i dorty si děláme sami, bez chemie.</p>
+      <p class="eyebrow" data-i18n="listek.eb">Lístek</p>
+      <h2 data-i18n="listek.h2">Co u nás dostanete</h2>
+      <p class="lede" data-i18n="listek.lede">Nic nekupujeme hotové. Bagety pečeme každé ráno a omáčky, dezerty i dorty si děláme sami, bez chemie.</p>
     </div>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
       <symbol id="orn" viewBox="0 0 40 40">
         <path d="M1 39V12C1 5.9 5.9 1 12 1h27" fill="none" stroke="currentColor" stroke-width="1.1"/>
         <path d="M6 39V15c0-4.97 4.03-9 9-9h24" fill="none" stroke="currentColor" stroke-width=".8" opacity=".55"/>
@@ -439,62 +521,62 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
           <svg class="pm-corner bl" aria-hidden="true"><use href="#orn"/></svg>
 
           <header class="pm-head">
-            <p class="pm-kicker">Bezlepkové bistro · Jindřichův Hradec</p>
+            <p class="pm-kicker" data-i18n="pm.kicker">Bezlepkové bistro · Jindřichův Hradec</p>
             <h3 class="pm-title">U Vrzky</h3>
-            <p class="pm-sub">Jídelní lístek</p>
+            <p class="pm-sub" data-i18n="pm.sub">Jídelní lístek</p>
             <div class="pm-orn" aria-hidden="true"><span></span><i></i><span></span></div>
           </header>
 
           <div class="pm-cols">
             <div>
               <section class="pm-sec">
-                <h4>Snídaně <small>8:00–10:30</small></h4>
-                <div class="pm-item"><div class="pm-row"><span class="pm-name">Anglická snídaně</span><span class="pm-dots"></span><span class="pm-price">179</span></div><p class="pm-desc">Vejce, slanina, fazole, grilované rajče, opečená bageta z naší pece</p></div>
-                <div class="pm-item"><div class="pm-row"><span class="pm-name">Sendvič Schwarzwälder &amp; avokádo</span><span class="pm-dots"></span><span class="pm-price">149</span></div><p class="pm-desc">Domácí bageta, šunka z Černého lesa, avokádo, rukola</p></div>
-                <div class="pm-item"><div class="pm-row"><span class="pm-name">Míchaná vejce s pažitkou</span><span class="pm-dots"></span><span class="pm-price">129</span></div><p class="pm-desc">Tři vejce, máslo, pažitka, čerstvá bageta</p></div>
-                <div class="pm-item"><div class="pm-row"><span class="pm-name">Ovesná kaše s ovocem</span><span class="pm-dots"></span><span class="pm-price">109</span></div><p class="pm-desc">Bezlepkový oves, sezónní ovoce, med, ořechy</p></div>
-                <div class="pm-item"><div class="pm-row"><span class="pm-name">Palačinky s tvarohem</span><span class="pm-dots"></span><span class="pm-price">139</span></div><p class="pm-desc">Domácí tvaroh, lesní ovoce, zakysaná smetana</p></div>
+                <h4 data-i18n="pm.s1">Snídaně <small>8:00–10:30</small></h4>
+                <div class="pm-item"><div class="pm-row"><span class="pm-name" data-i18n="m1n">Anglická snídaně</span><span class="pm-dots"></span><span class="pm-price">179</span></div><p class="pm-desc" data-i18n="m1d">Vejce, slanina, fazole, grilované rajče, opečená bageta z naší pece</p></div>
+                <div class="pm-item"><div class="pm-row"><span class="pm-name" data-i18n="m2n">Sendvič Schwarzwälder &amp; avokádo</span><span class="pm-dots"></span><span class="pm-price">149</span></div><p class="pm-desc" data-i18n="m2d">Domácí bageta, šunka z Černého lesa, avokádo, rukola</p></div>
+                <div class="pm-item"><div class="pm-row"><span class="pm-name" data-i18n="m3n">Míchaná vejce s pažitkou</span><span class="pm-dots"></span><span class="pm-price">129</span></div><p class="pm-desc" data-i18n="m3d">Tři vejce, máslo, pažitka, čerstvá bageta</p></div>
+                <div class="pm-item"><div class="pm-row"><span class="pm-name" data-i18n="m4n">Ovesná kaše s ovocem</span><span class="pm-dots"></span><span class="pm-price">109</span></div><p class="pm-desc" data-i18n="m4d">Bezlepkový oves, sezónní ovoce, med, ořechy</p></div>
+                <div class="pm-item"><div class="pm-row"><span class="pm-name" data-i18n="m5n">Palačinky s tvarohem</span><span class="pm-dots"></span><span class="pm-price">139</span></div><p class="pm-desc" data-i18n="m5d">Domácí tvaroh, lesní ovoce, zakysaná smetana</p></div>
               </section>
 
               <section class="pm-sec">
-                <h4>Polévky</h4>
-                <div class="pm-item"><div class="pm-row"><span class="pm-name">Kulajda s vejcem</span><span class="pm-dots"></span><span class="pm-price">69</span></div><p class="pm-desc">Kopr, houby, brambory, zastřené vejce</p></div>
-                <div class="pm-item"><div class="pm-row"><span class="pm-name">Hovězí vývar s nudlemi</span><span class="pm-dots"></span><span class="pm-price">59</span></div><p class="pm-desc">Tažený šest hodin, domácí nudle</p></div>
+                <h4 data-i18n="pm.s2">Polévky</h4>
+                <div class="pm-item"><div class="pm-row"><span class="pm-name" data-i18n="m6n">Kulajda s vejcem</span><span class="pm-dots"></span><span class="pm-price">69</span></div><p class="pm-desc" data-i18n="m6d">Kopr, houby, brambory, zastřené vejce</p></div>
+                <div class="pm-item"><div class="pm-row"><span class="pm-name" data-i18n="m7n">Hovězí vývar s nudlemi</span><span class="pm-dots"></span><span class="pm-price">59</span></div><p class="pm-desc" data-i18n="m7d">Tažený šest hodin, domácí nudle</p></div>
               </section>
 
               <section class="pm-sec">
-                <h4>Nápoje</h4>
-                <div class="pm-item"><div class="pm-row"><span class="pm-name">Espresso</span><span class="pm-dots"></span><span class="pm-price">49</span></div></div>
-                <div class="pm-item"><div class="pm-row"><span class="pm-name">Cappuccino</span><span class="pm-dots"></span><span class="pm-price">65</span></div></div>
-                <div class="pm-item"><div class="pm-row"><span class="pm-name">Domácí limonáda 0,4 l</span><span class="pm-dots"></span><span class="pm-price">59</span></div><p class="pm-desc">Bezinka, máta nebo zázvor</p></div>
-                <div class="pm-item"><div class="pm-row"><span class="pm-name">Čaj z konvičky</span><span class="pm-dots"></span><span class="pm-price">45</span></div></div>
+                <h4 data-i18n="pm.s3">Nápoje</h4>
+                <div class="pm-item"><div class="pm-row"><span class="pm-name" data-i18n="m8n">Espresso</span><span class="pm-dots"></span><span class="pm-price">49</span></div></div>
+                <div class="pm-item"><div class="pm-row"><span class="pm-name" data-i18n="m9n">Cappuccino</span><span class="pm-dots"></span><span class="pm-price">65</span></div></div>
+                <div class="pm-item"><div class="pm-row"><span class="pm-name" data-i18n="m10n">Domácí limonáda 0,4 l</span><span class="pm-dots"></span><span class="pm-price">59</span></div><p class="pm-desc" data-i18n="m10d">Bezinka, máta nebo zázvor</p></div>
+                <div class="pm-item"><div class="pm-row"><span class="pm-name" data-i18n="m11n">Čaj z konvičky</span><span class="pm-dots"></span><span class="pm-price">45</span></div></div>
               </section>
             </div>
 
             <div>
               <section class="pm-sec">
-                <h4>Hlavní jídla</h4>
-                <div class="pm-item"><div class="pm-row"><span class="pm-name">Vepřo-zelo-knedlo</span><span class="pm-dots"></span><span class="pm-price">189</span></div><p class="pm-desc">Pečená plec, dušené zelí, náš bramborový knedlík</p></div>
-                <div class="pm-item"><div class="pm-row"><span class="pm-name">Panenka s houbovým ragú</span><span class="pm-dots"></span><span class="pm-price">229</span></div><p class="pm-desc">Vepřová panenka, lesní houby, šťouchané brambory</p></div>
-                <div class="pm-item"><div class="pm-row"><span class="pm-name">Smažený sýr</span><span class="pm-dots"></span><span class="pm-price">179</span></div><p class="pm-desc">Eidam v naší strouhance, hranolky, domácí tatarka</p></div>
-                <div class="pm-item"><div class="pm-row"><span class="pm-name">Kuřecí řízek</span><span class="pm-dots"></span><span class="pm-price">199</span></div><p class="pm-desc">V bezlepkovém trojobalu, bramborový salát podle babičky</p></div>
-                <div class="pm-item"><div class="pm-row"><span class="pm-name">Zeleninové rizoto</span><span class="pm-dots"></span><span class="pm-price">169</span></div><p class="pm-desc">Sezónní zelenina, parmazán, bylinkový olej · bez masa</p></div>
+                <h4 data-i18n="pm.s4">Hlavní jídla</h4>
+                <div class="pm-item"><div class="pm-row"><span class="pm-name" data-i18n="m12n">Vepřo-zelo-knedlo</span><span class="pm-dots"></span><span class="pm-price">189</span></div><p class="pm-desc" data-i18n="m12d">Pečená plec, dušené zelí, náš bramborový knedlík</p></div>
+                <div class="pm-item"><div class="pm-row"><span class="pm-name" data-i18n="m13n">Panenka s houbovým ragú</span><span class="pm-dots"></span><span class="pm-price">229</span></div><p class="pm-desc" data-i18n="m13d">Vepřová panenka, lesní houby, šťouchané brambory</p></div>
+                <div class="pm-item"><div class="pm-row"><span class="pm-name" data-i18n="m14n">Smažený sýr</span><span class="pm-dots"></span><span class="pm-price">179</span></div><p class="pm-desc" data-i18n="m14d">Eidam v naší strouhance, hranolky, domácí tatarka</p></div>
+                <div class="pm-item"><div class="pm-row"><span class="pm-name" data-i18n="m15n">Kuřecí řízek</span><span class="pm-dots"></span><span class="pm-price">199</span></div><p class="pm-desc" data-i18n="m15d">V bezlepkovém trojobalu, bramborový salát podle babičky</p></div>
+                <div class="pm-item"><div class="pm-row"><span class="pm-name" data-i18n="m16n">Zeleninové rizoto</span><span class="pm-dots"></span><span class="pm-price">169</span></div><p class="pm-desc" data-i18n="m16d">Sezónní zelenina, parmazán, bylinkový olej · bez masa</p></div>
               </section>
 
               <section class="pm-sec">
-                <h4>Z vitríny</h4>
-                <div class="pm-item"><div class="pm-row"><span class="pm-name">Domácí bageta</span><span class="pm-dots"></span><span class="pm-price">45</span></div></div>
-                <div class="pm-item"><div class="pm-row"><span class="pm-name">Větrník</span><span class="pm-dots"></span><span class="pm-price">65</span></div><p class="pm-desc">Karamel, vanilkový krém</p></div>
-                <div class="pm-item"><div class="pm-row"><span class="pm-name">Makovec</span><span class="pm-dots"></span><span class="pm-price">55</span></div></div>
-                <div class="pm-item"><div class="pm-row"><span class="pm-name">Cheesecake s ovocem</span><span class="pm-dots"></span><span class="pm-price">79</span></div></div>
-                <div class="pm-item"><div class="pm-row"><span class="pm-name">Dort na objednávku</span><span class="pm-dots"></span><span class="pm-price">od 650</span></div><p class="pm-desc">Domluvte se s námi tři dny předem</p></div>
+                <h4 data-i18n="pm.s5">Z vitríny</h4>
+                <div class="pm-item"><div class="pm-row"><span class="pm-name" data-i18n="m17n">Domácí bageta</span><span class="pm-dots"></span><span class="pm-price">45</span></div></div>
+                <div class="pm-item"><div class="pm-row"><span class="pm-name" data-i18n="m18n">Větrník</span><span class="pm-dots"></span><span class="pm-price">65</span></div><p class="pm-desc" data-i18n="m18d">Karamel, vanilkový krém</p></div>
+                <div class="pm-item"><div class="pm-row"><span class="pm-name" data-i18n="m19n">Makovec</span><span class="pm-dots"></span><span class="pm-price">55</span></div></div>
+                <div class="pm-item"><div class="pm-row"><span class="pm-name" data-i18n="m20n">Cheesecake s ovocem</span><span class="pm-dots"></span><span class="pm-price">79</span></div></div>
+                <div class="pm-item"><div class="pm-row"><span class="pm-name" data-i18n="m21n">Dort na objednávku</span><span class="pm-dots"></span><span class="pm-price" data-i18n="m21p">od 650</span></div><p class="pm-desc" data-i18n="m21d">Domluvte se s námi tři dny předem</p></div>
               </section>
             </div>
           </div>
 
           <footer class="pm-foot">
-            Všechno vaříme bez lepku, v kuchyni, kde lepek vůbec není. Bez laktózy to umíme taky, stačí říct. Ceny jsou v korunách včetně DPH.
-            <em>Ukázkový lístek. Kromě dvou snídaní z vašeho Facebooku jsou položky a ceny jen pro představu.</em>
+            <span data-i18n="pm.foot">Všechno vaříme bez lepku, v kuchyni, kde lepek vůbec není. Bez laktózy to umíme taky, stačí říct. Ceny jsou v korunách včetně DPH.</span>
+            <em data-i18n="pm.note">Ukázkový lístek. Kromě dvou snídaní z vašeho Facebooku jsou položky a ceny jen pro představu.</em>
           </footer>
 
           <svg class="pm-stamp" viewBox="0 0 160 160" aria-hidden="true">
@@ -502,22 +584,22 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
             <circle cx="80" cy="80" r="75" fill="none" stroke="currentColor" stroke-width="2.2"/>
             <circle cx="80" cy="80" r="69" fill="none" stroke="currentColor" stroke-width="1"/>
             <text font-family="Outfit, sans-serif" font-size="11" letter-spacing="2.4" font-weight="600" fill="currentColor">
-              <textPath href="#stampPath">100 % BEZ LEPKU · VLASTNÍ VÝROBA · </textPath>
+              <textPath href="#stampPath" data-i18n-t="stamp.ring">100 % BEZ LEPKU · VLASTNÍ VÝROBA · </textPath>
             </text>
-            <text x="80" y="77" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="30" font-weight="600" fill="currentColor">Vše</text>
-            <text x="80" y="99" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="15" font-style="italic" fill="currentColor">z jedné kuchyně</text>
+            <text x="80" y="77" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="30" font-weight="600" fill="currentColor" data-i18n-t="stamp.a">Vše</text>
+            <text x="80" y="99" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="15" font-style="italic" fill="currentColor" data-i18n-t="stamp.b">z jedné kuchyně</text>
           </svg>
         </div>
       </article>
     </div>
 
     <div class="menu-after rv" style="--d:.15s">
-      <img src="img/pekarna.jpg" alt="Vitrína pekárny s čerstvě upečeným pečivem" width="1300" height="867" loading="lazy">
+      <img src="img/pekarna.jpg" alt="Vitrína pekárny s čerstvě upečeným pečivem" data-i18n-alt="alt.pekarna" width="1300" height="867" loading="lazy">
       <div>
-        <p><b>Denní menu.</b> Každý den vaříme něco jiného. Nabídku dáváme ráno sem a na Facebook, ať víte dopředu, na co se těšit.</p>
-        <p><b>S sebou.</b> Jídlo vám dáme do vratné REkrabičky. Záloha 80 Kč, kterou při vrácení dostanete zpátky.</p>
+        <p data-i18n="ma.1"><b>Denní menu.</b> Každý den vaříme něco jiného. Nabídku dáváme ráno sem a na Facebook, ať víte dopředu, na co se těšit.</p>
+        <p data-i18n="ma.2"><b>S sebou.</b> Jídlo vám dáme do vratné REkrabičky. Záloha 80 Kč, kterou při vrácení dostanete zpátky.</p>
       </div>
-      <button class="btn line" type="button" onclick="window.print()">Vytisknout lístek</button>
+      <button class="btn line" type="button" onclick="window.print()" data-i18n="ma.print">Vytisknout lístek</button>
     </div>
   </div>
 </section>
@@ -525,84 +607,143 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
 <section class="sec tinted" id="kuchyne">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="eyebrow">Jak to u nás chodí</p>
-      <h2>Vaříme si všechno sami</h2>
+      <p class="eyebrow" data-i18n="k.eb">Jak to u nás chodí</p>
+      <h2 data-i18n="k.h2">Vaříme si všechno sami</h2>
     </div>
     <div class="facts">
       <div class="fact rv" style="--d:.0s">
-        <span class="ic" aria-hidden="true"><svg aria-hidden="true"><use href="#i-pin"/></svg></span>
+        <span class="ic" aria-hidden="true"><svg><use href="#i-pin"/></svg></span>
         <div>
-          <h4>Žádné polotovary</h4>
-          <p>Všechno, co u nás ochutnáte, jsme upekli nebo uvařili sami. Nic hotového nedovážíme a chemii do jídla nedáváme.</p>
+          <h4 data-i18n="k.1h">Žádné polotovary</h4>
+          <p data-i18n="k.1p">Všechno, co u nás ochutnáte, jsme upekli nebo uvařili sami. Nic hotového nedovážíme a chemii do jídla nedáváme.</p>
         </div>
       </div>
       <div class="fact rv" style="--d:.1s">
-        <span class="ic" aria-hidden="true"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>
+        <span class="ic" aria-hidden="true"><svg><use href="#i-shield"/></svg></span>
         <div>
-          <h4>Bez rizika křížové kontaminace</h4>
-          <p>V bistru nemáme jedinou surovinu s lepkem. Nemusíte řešit, na čem se to smažilo a čím se to krájelo.</p>
+          <h4 data-i18n="k.2h">Bez rizika křížové kontaminace</h4>
+          <p data-i18n="k.2p">V bistru nemáme jedinou surovinu s lepkem. Nemusíte řešit, na čem se to smažilo a čím se to krájelo.</p>
         </div>
       </div>
       <div class="fact rv" style="--d:.2s">
-        <span class="ic" aria-hidden="true"><svg aria-hidden="true"><use href="#i-heart"/></svg></span>
+        <span class="ic" aria-hidden="true"><svg><use href="#i-heart"/></svg></span>
         <div>
-          <h4>Rodinný podnik</h4>
-          <p>Bistro vede Iveta Vrzáková. Když potřebujete něco upravit, řeknete to rovnou tomu, kdo vaří.</p>
+          <h4 data-i18n="k.3h">Rodinný podnik</h4>
+          <p data-i18n="k.3p">Bistro vede Iveta Vrzáková. Když potřebujete něco upravit, řeknete to rovnou tomu, kdo vaří.</p>
         </div>
       </div>
       <div class="fact warn rv" style="--d:.3s">
-        <span class="ic" aria-hidden="true"><svg aria-hidden="true"><use href="#i-cash"/></svg></span>
+        <span class="ic" aria-hidden="true"><svg><use href="#i-cash"/></svg></span>
         <div>
-          <h4>Platí se hotově</h4>
-          <p>Kartou zatím bohužel ne, vezměte si prosím hotovost. Vstup do bistra není bezbariérový.</p>
+          <h4 data-i18n="k.4h">Platí se hotově</h4>
+          <p data-i18n="k.4p">Kartou zatím bohužel ne, vezměte si prosím hotovost. Vstup do bistra není bezbariérový.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sec" id="navsteva">
+<section class="sec" id="pruvodce">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="eyebrow">Kde nás najdete</p>
+      <p class="eyebrow" data-i18n="g.eb">Pro celiaky</p>
+      <h2 data-i18n="g.h2">Co byste chtěli vědět, než přijdete</h2>
+      <p class="lede" data-i18n="g.lede">Když jíte bez lepku, máte otázky ještě před tím, než otevřete dveře. Tady jsou odpovědi.</p>
+    </div>
+    <div class="guide">
+      <dl class="qa rv">
+        <div><dt data-i18n="g.q1">Co u vás znamená „100 % bezlepkové“?</dt><dd data-i18n="g.a1">Že v celém bistru není žádná surovina s lepkem. Ne bezlepková varianta vedle běžné kuchyně, ale jedna kuchyň, kde lepek nikdy nebyl.</dd></div>
+        <div><dt data-i18n="g.q2">Jak řešíte křížovou kontaminaci?</dt><dd data-i18n="g.a2">Nemáme co oddělovat. Jedna fritéza, jedna sada prkének, jedna trouba, a všechno bez lepku. Křížová kontaminace vzniká tam, kde je lepek vedle. Tady vedle není.</dd></div>
+        <div><dt data-i18n="g.q3">A co oves?</dt><dd data-i18n="g.a3">Oves sám lepek neobsahuje, ale často se zpracovává s pšenicí. My používáme jen oves označený jako bezlepkový. Když se mu chcete vyhnout, řekněte to, máme i snídaně bez něj.</dd></div>
+        <div><dt data-i18n="g.q4">Umíte i bez laktózy?</dt><dd data-i18n="g.a4">Ano. Řekněte to při objednávce a kuchyně jídlo upraví. Většinu dezertů umíme i bez laktózy, dorty na objednávku vždycky.</dd></div>
+        <div><dt data-i18n="g.q5">Jak poznám alergeny?</dt><dd data-i18n="g.a5">U každého jídla vám je řekneme u pultu, na lístku i v denním menu. Suroviny kupujeme od dodavatelů, které známe, a etikety čteme až do konce.</dd></div>
+        <div><dt data-i18n="g.q6">Jsem tu poprvé. Co mám říct?</dt><dd data-i18n="g.a6">Nic zvláštního. U nás se neptáte, jestli to jde bez lepku, protože všechno jde. Jen nám řekněte, jestli máte ještě jinou dietu, ať vám poradíme.</dd></div>
+      </dl>
+      <figure class="ph rv" style="--d:.12s"><img src="img/interier.jpg" alt="Světlý kout bistra s pultem, barovými stoličkami a dřevěným stolem" data-i18n-alt="alt.interier" width="1300" height="1950" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec tinted" id="navsteva">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow" data-i18n="v.eb">Kde nás najdete</p>
       <h2>Svatojánská 144, Jindřichův Hradec</h2>
     </div>
     <div class="visit">
       <div class="rv">
-        <p class="openflag" id="openflag"><span class="dot"></span><span id="openText">Otevírací doba níže</span></p>
+        <p class="openflag" id="openflag"><span class="dot"></span><span id="openText"></span></p>
 
         <div class="blk">
-          <h4>Otevřeno</h4>
+          <h4 data-i18n="v.hours">Otevřeno</h4>
           <dl class="hours" id="hours">
-            <div style="display:contents" data-day="1"><dt>Pondělí</dt><dd>8:00–18:00</dd></div>
-            <div style="display:contents" data-day="2"><dt>Úterý</dt><dd>8:00–18:00</dd></div>
-            <div style="display:contents" data-day="3"><dt>Středa</dt><dd>8:00–18:00</dd></div>
-            <div style="display:contents" data-day="4"><dt>Čtvrtek</dt><dd>8:00–18:00</dd></div>
-            <div style="display:contents" data-day="5"><dt>Pátek</dt><dd>8:00–18:00</dd></div>
-            <div style="display:contents" data-day="6"><dt>Sobota</dt><dd>8:30–18:00</dd></div>
-            <div style="display:contents" data-day="0"><dt>Neděle</dt><dd>8:30–18:00</dd></div>
+            <div style="display:contents" data-day="1"><dt data-i18n="d.1">Pondělí</dt><dd>8:00–18:00</dd></div>
+            <div style="display:contents" data-day="2"><dt data-i18n="d.2">Úterý</dt><dd>8:00–18:00</dd></div>
+            <div style="display:contents" data-day="3"><dt data-i18n="d.3">Středa</dt><dd>8:00–18:00</dd></div>
+            <div style="display:contents" data-day="4"><dt data-i18n="d.4">Čtvrtek</dt><dd>8:00–18:00</dd></div>
+            <div style="display:contents" data-day="5"><dt data-i18n="d.5">Pátek</dt><dd>8:00–18:00</dd></div>
+            <div style="display:contents" data-day="6"><dt data-i18n="d.6">Sobota</dt><dd>8:30–18:00</dd></div>
+            <div style="display:contents" data-day="0"><dt data-i18n="d.0">Neděle</dt><dd>8:30–18:00</dd></div>
           </dl>
         </div>
 
         <div class="blk">
-          <h4>Adresa</h4>
+          <h4 data-i18n="v.addr">Adresa</h4>
           <p>Svatojánská 144/1<br>377 01 Jindřichův Hradec I</p>
-          <p style="margin-top:.7rem"><a class="maplink" href="https://mapy.cz/zakladni?q=Svatojánská%20144%20Jindřichův%20Hradec" target="_blank" rel="noopener">Otevřít v mapách →</a></p>
+          <p style="margin-top:.7rem"><a class="maplink" href="https://mapy.cz/zakladni?q=Svatojánská%20144%20Jindřichův%20Hradec" target="_blank" rel="noopener" data-i18n="v.map">Otevřít v mapách →</a></p>
         </div>
 
         <div class="blk">
-          <h4>Zavolejte nám</h4>
+          <h4 data-i18n="v.call">Zavolejte nám</h4>
           <a class="bigtel" href="tel:+420734718428">734 718 428</a><br>
           <a class="bigtel sm" href="tel:+420776173132">776 173 132</a>
-          <p style="margin-top:.6rem">Nebo napište na <a class="maplink" href="mailto:bezlepkovebistro@gmail.com">bezlepkovebistro@gmail.com</a></p>
+          <p style="margin-top:.6rem"><span data-i18n="v.mail">Nebo napište na</span> <a class="maplink" href="mailto:bezlepkovebistro@gmail.com">bezlepkovebistro@gmail.com</a></p>
         </div>
 
         <div class="blk">
-          <h4>Dobré vědět</h4>
-          <p>Jsme kousek od centra a zastavit se dá přímo v ulici. S dětmi jste vítaní. Vstup není bezbariérový a platí se hotově.</p>
+          <h4 data-i18n="v.good">Dobré vědět</h4>
+          <p data-i18n="v.goodp">Jsme kousek od centra a zastavit se dá přímo v ulici. S dětmi jste vítaní. Vstup není bezbariérový a platí se hotově.</p>
         </div>
       </div>
-      <figure class="ph rv" style="--d:.12s"><img src="img/interier.jpg" alt="Světlý kout bistra s pultem, barovými stoličkami a dřevěným stolem" width="1300" height="1950" loading="lazy"></figure>
+
+      <figure class="map rv" style="--d:.12s" aria-label="Orientační mapka okolí">
+        <svg viewBox="0 0 520 600" role="img">
+          <!-- ulice -->
+          <path class="st" style="--i:0" d="M60 350 C130 340 190 336 250 338 C320 340 400 346 480 356"/>
+          <path class="st st2" style="--i:1" d="M120 250 C160 262 200 268 250 268 C310 268 360 262 410 250"/>
+          <path class="st st2" style="--i:2" d="M180 470 C220 458 260 454 300 456 C340 458 380 466 420 480"/>
+          <path class="st st2" style="--i:3" d="M110 100 C150 130 190 170 230 210"/>
+          <path class="st st2" style="--i:4" d="M420 120 C390 160 360 200 330 240"/>
+          <!-- náměstí -->
+          <rect class="sq" x="190" y="300" width="140" height="96" rx="6"/>
+          <path class="st" style="--i:5" d="M190 300 H330 V396 H190 Z"/>
+          <circle class="st" style="--i:6" cx="260" cy="348" r="7"/>
+          <!-- Svatojánská: z náměstí nahoru ke kostelu -->
+          <path class="st" style="--i:7" id="svj" d="M262 300 C264 260 262 215 258 175 C255 148 258 122 268 100"/>
+          <!-- kostel sv. Jana -->
+          <path class="st" style="--i:8" d="M250 96 H310 V56 L280 34 L250 56 Z M280 20 V34 M272 26 H288 M276 96 V76 H284 V96"/>
+          <!-- zámek -->
+          <path class="st" style="--i:9" d="M56 470 V420 H80 V404 H96 V420 H120 V470 Z M88 470 V444 H100 V470 M56 420 L68 396 L80 420"/>
+          <path class="st st2" style="--i:10" d="M120 452 H160 V470 H120"/>
+          <!-- Vajgar -->
+          <path class="water" style="--i:11" d="M330 500 C350 462 420 450 470 470 C512 488 512 540 480 566 C440 596 370 592 340 566 C316 546 318 522 330 500 Z"/>
+          <path class="st st2" style="--i:12" d="M370 520 q10-6 20 0 t20 0 t20 0 M380 545 q10-6 20 0 t20 0 t20 0"/>
+          <!-- kompas -->
+          <path class="st" style="--i:13" d="M470 52 L462 80 L470 72 L478 80 Z M470 52 V92"/>
+          <!-- pin -->
+          <circle class="pulse" cx="260" cy="200" r="10"/>
+          <path class="pin" d="M260 172 c-9 0-15 7-15 15 0 11 15 27 15 27 s15-16 15-27c0-8-6-15-15-15z m0 20a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
+          <!-- popisky -->
+          <text class="lbl b" x="282" y="196" data-i18n-t="map.here">U Vrzky</text>
+          <text class="lbl" x="300" y="46" data-i18n-t="map.church">kostel sv. Jana</text>
+          <text class="lbl" x="200" y="424" data-i18n-t="map.square">náměstí Míru</text>
+          <text class="lbl" x="56" y="498" data-i18n-t="map.castle">zámek</text>
+          <text class="lbl" x="392" y="590" data-i18n-t="map.pond">rybník Vajgar</text>
+          <text class="lbl s" x="464" y="108" data-i18n-t="map.n">S</text>
+          <text class="lbl" font-size="13" dy="-6"><textPath href="#svj" startOffset="18%" data-i18n-t="map.street">Svatojánská</textPath></text>
+        </svg>
+        <figcaption data-i18n="map.cap">Orientační mapka. Z náměstí Míru jste u nás za tři minuty pěšky.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -611,11 +752,11 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
   <div class="wrap rv">
     <div class="score">
       <b>5,0</b>
-      <span>45 hodnocení<br>na Firmy.cz</span>
+      <span data-i18n="r.count">45 hodnocení<br>na Firmy.cz</span>
     </div>
     <div>
-      <p class="revq">„Velký výběr, velice chutná jídla, prostě vše super.“</p>
-      <p class="revsrc">Recenze hosta · Personál 4,9 · Jídlo 5,0 · Prostředí 5,0<br>Hodnocení převzatá z veřejných profilů Firmy.cz, Slevomat a Mňambezlepku.</p>
+      <p class="revq" data-i18n="r.q">„Velký výběr, velice chutná jídla, prostě vše super.“</p>
+      <p class="revsrc" data-i18n="r.src">Recenze hosta · Personál 4,9 · Jídlo 5,0 · Prostředí 5,0<br>Hodnocení převzatá z veřejných profilů Firmy.cz, Slevomat a Mňambezlepku.</p>
     </div>
   </div>
 </section>
@@ -624,19 +765,84 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
   <div class="wrap">
     <div class="events">
       <div class="rv">
-        <p class="eyebrow">Akce a oslavy</p>
-        <h2>Uvaříme i pro vaši sešlost</h2>
-        <p class="lede">Bistro si můžete zamluvit celé. Menu domluvíme podle toho, co máte rádi. A nikdo z vašich hostů nemusí řešit, co smí a co ne.</p>
+        <p class="eyebrow" data-i18n="e.eb">Akce a oslavy</p>
+        <h2 data-i18n="e.h2">Uvaříme i pro vaši sešlost</h2>
+        <p class="lede" data-i18n="e.lede">Bistro si můžete zamluvit celé. Menu domluvíme podle toho, co máte rádi. A nikdo z vašich hostů nemusí řešit, co smí a co ne.</p>
         <ul>
-          <li>Rodinné oslavy a narozeniny</li>
-          <li>Firemní posezení a party</li>
-          <li>Menší svatby</li>
-          <li>Smuteční hostiny</li>
-          <li>Dorty na objednávku</li>
+          <li data-i18n="e.l1">Rodinné oslavy a narozeniny</li>
+          <li data-i18n="e.l2">Firemní posezení a party</li>
+          <li data-i18n="e.l3">Menší svatby</li>
+          <li data-i18n="e.l4">Smuteční hostiny</li>
+          <li data-i18n="e.l5">Dorty na objednávku</li>
         </ul>
-        <p style="margin-top:1.8rem"><a class="btn big" href="tel:+420734718428">Domluvit termín telefonem</a></p>
+        <p style="margin-top:1.8rem"><a class="btn big" href="tel:+420734718428" data-i18n="e.cta">Domluvit termín telefonem</a></p>
       </div>
-      <figure class="ph rv" style="--d:.12s"><img src="img/stul.jpg" alt="Prostřený stůl s talíři jídla a šálky kávy" width="1300" height="867" loading="lazy"></figure>
+      <figure class="ph rv" style="--d:.12s"><img src="img/stul.jpg" alt="Prostřený stůl s talíři jídla a šálky kávy" data-i18n-alt="alt.stul" width="1300" height="867" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="dort">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow" data-i18n="c.eb">Dort na objednávku</p>
+      <h2 data-i18n="c.h2">Objednejte si dort, který může jíst každý</h2>
+      <p class="lede" data-i18n="c.lede">Narozeniny, svatba, nebo jen tak. Vyplňte, co potřebujete, a my se vám ozveme do druhého dne s potvrzením a cenou. Dort si vyzvednete v bistru.</p>
+    </div>
+    <div class="cake">
+      <form class="cf rv" id="cakeForm" novalidate>
+        <div class="f">
+          <label for="c-flavor" data-i18n="c.flavor">Příchuť</label>
+          <select id="c-flavor" name="flavor">
+            <option data-i18n="c.f1">Čokoládový</option>
+            <option data-i18n="c.f2">Tvarohový s ovocem</option>
+            <option data-i18n="c.f3">Ořechový s karamelem</option>
+            <option>Cheesecake</option>
+            <option data-i18n="c.f5">Jiný, napíšu do poznámky</option>
+          </select>
+        </div>
+        <div class="f">
+          <label for="c-size" data-i18n="c.size">Velikost</label>
+          <select id="c-size" name="size">
+            <option data-i18n="c.s1">pro 6 osob</option>
+            <option data-i18n="c.s2" selected>pro 10 osob</option>
+            <option data-i18n="c.s3">pro 15 osob</option>
+            <option data-i18n="c.s4">pro 20 a více osob</option>
+          </select>
+        </div>
+        <div class="f">
+          <label for="c-date" data-i18n="c.date">Datum vyzvednutí</label>
+          <input type="date" id="c-date" name="date" required>
+        </div>
+        <div class="f">
+          <label for="c-phone" data-i18n="c.phone">Telefon</label>
+          <input type="tel" id="c-phone" name="phone" autocomplete="tel" required>
+        </div>
+        <div class="f full">
+          <label for="c-name" data-i18n="c.name">Jméno</label>
+          <input type="text" id="c-name" name="name" autocomplete="name" required>
+        </div>
+        <div class="f full">
+          <label for="c-note" data-i18n="c.note">Nápis na dort, alergie, poznámka</label>
+          <textarea id="c-note" name="note" placeholder="Např.: bez laktózy, nápis „Všechno nejlepší, Aničko“" data-i18n-ph="c.noteph"></textarea>
+        </div>
+        <p class="err" id="cakeErr" role="alert"></p>
+        <div class="act">
+          <button class="btn big" type="submit" data-i18n="c.submit">Odeslat poptávku</button>
+          <small data-i18n="c.small">Ukázkový formulář, nic se neodešle.</small>
+        </div>
+      </form>
+
+      <aside class="cake-side rv" style="--d:.12s">
+        <h3 data-i18n="c.ah">Dobré vědět</h3>
+        <ul>
+          <li data-i18n="c.a1">Všechny dorty jsou bez lepku, na přání i bez laktózy.</li>
+          <li data-i18n="c.a2">Objednávejte aspoň tři dny předem, ať máme čas péct v klidu.</li>
+          <li data-i18n="c.a3">Vyzvednutí v bistru v otevírací době, platba hotově při převzetí.</li>
+          <li data-i18n="c.a4">Cena záleží na velikosti a zdobení, řekneme vám ji hned v potvrzení.</li>
+        </ul>
+        <p class="price"><span data-i18n="c.from">od</span> 650 Kč <small data-i18n="c.per">za dort pro 6 osob</small></p>
+      </aside>
     </div>
   </div>
 </section>
@@ -655,8 +861,8 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
         <li><span class="n">01</span><span><b>Na internetu o vás kolují tři různé otevírací doby.</b> Na třech portálech jsou tři verze a liší se i v tom, jestli máte v neděli otevřeno. Web je jediné místo, které to může rozhodnout.</span></li>
         <li><span class="n">02</span><span><b>Google neví, že jste restaurace.</b> Z Facebooku to nepozná. Když to má na webu správně zapsané, ukáže vás i s otevírací dobou a hodnocením.</span></li>
         <li><span class="n">03</span><span><b>Máte 5,0 z 45 hodnocení</b> a nikde to není vidět hned. Přitom je to to nejlepší, co se o vás dá říct.</span></li>
-        <li><span class="n">04</span><span><b>Denní menu na webu, ne jen na Facebooku.</b> Kdo Facebook nemá, se dnes k vaší nabídce nedostane.</span></li>
-        <li><span class="n">05</span><span><b>Vlastní adresa místo odkazu na sociální síť.</b> Dá se napsat na ceduli, účtenku i do Googlu.</span></li>
+        <li><span class="n">04</span><span><b>Web mluví i anglicky a německy.</b> Hradec je půl hodiny od Rakouska a celiaci cestují s plánem, kde se najíst. Přepínač je vpravo nahoře.</span></li>
+        <li><span class="n">05</span><span><b>Dort si u vás objednají z mobilu.</b> Formulář dole přijde na váš e-mail, vy jen potvrdíte termín a cenu.</span></li>
       </ul>
 
       <div class="rv" style="--d:.15s">
@@ -673,6 +879,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
           <ol start="2" style="margin-top:1.1rem">
             <li><b>Váš aktuální lístek s cenami.</b> Máme jen dvě ceny z vašeho Facebooku, zbytek lístku je jen pro představu.</li>
             <li><b>Pár vlastních fotek.</b> Ty tady jsou ilustrační, vaše jídlo bude vypadat líp.</li>
+            <li><b>Zkontrolovat sekci pro celiaky.</b> Napsali jsme ji podle toho, jak to u vás podle recenzí chodí. Cokoliv upravíme.</li>
           </ol>
         </div>
 
@@ -694,14 +901,14 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     <span class="name">Bezlepkové Bistro U Vrzky</span>
     <span>Svatojánská 144/1, Jindřichův Hradec</span>
     <a href="tel:+420734718428">734 718 428</a>
-    <a class="up" href="#top">Nahoru ↑</a>
-    <span class="end">Návrh webu, ne oficiální stránka podniku. Připravilo <a href="mailto:info@filsns.cz" style="color:var(--gold-ink);font-weight:500">filsns s.r.o.</a> Provozovatelem bistra je VIDČ FOOD s.r.o., IČO 19295952.</span>
+    <a class="up" href="#top" data-i18n="f.up">Nahoru ↑</a>
+    <span class="end" data-i18n="f.end">Návrh webu, ne oficiální stránka podniku. Připravilo <a href="mailto:info@filsns.cz" style="color:var(--gold-ink);font-weight:500">filsns s.r.o.</a> Provozovatelem bistra je VIDČ FOOD s.r.o., IČO 19295952.</span>
   </div>
 </footer>
 
 <div class="mobar">
-  <a class="btn line" href="#listek">Lístek</a>
-  <a class="btn" href="tel:+420734718428">Zavolat</a>
+  <a class="btn line" href="#listek" data-i18n="mb.1">Lístek</a>
+  <a class="btn" href="tel:+420734718428" data-i18n="mb.2">Zavolat</a>
 </div>
 
 <script type="application/ld+json">
@@ -729,6 +936,214 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
 <script>
 (function(){
   "use strict";
+
+  /* ================= překlady ================= */
+  var I18N = {
+  en: {
+    "demo.tag":"Website proposal",
+    "demo.text":"This is not the bistro's official website. It is a non-binding proposal by filsns s.r.o. Photos are illustrative; details were gathered from public sources.",
+    "demo.link":"Who sent this →",
+    "brand.sub":"100 % gluten-free",
+    "nav.listek":"Menu","nav.kuchyne":"How we cook","nav.pruvodce":"For coeliacs","nav.navsteva":"Find us","nav.akce":"Events","nav.dort":"Cakes",
+    "nav.hours":"Opening hours","nav.toggle":"Menu",
+    "hero.h1":"The whole menu.<br><em>Gluten-free.</em> No need to ask.",
+    "hero.sub":"A family bistro in the centre of Jindřichův Hradec. Order anything on the menu, there is no gluten here. Breakfast, lunch, freshly baked baguettes and cakes.",
+    "hero.cta1":"See the menu","hero.cta2":"Call to order",
+    "hero.st1":"<b>5.0</b> from 45 reviews on Firmy.cz","hero.st2":"Cooked by <b>Iveta Vrzáková</b>","hero.st3":"<b>Takeaway</b> in returnable boxes",
+    "claim.h2":"There is no gluten in this kitchen. None at all.",
+    "claim.p1":"Most restaurants have a “gluten-free option”. Then you hope it wasn't cooked in the same pan or cut on the same board. Here you don't have to ask.",
+    "claim.p2":"The whole bistro is gluten-free. The menu, the counter and every pastry. We don't have a gluten-free corner, we have a gluten-free house. If you can't have lactose, tell us when ordering and we'll sort it out.",
+    "listek.eb":"Menu","listek.h2":"What we serve",
+    "listek.lede":"Nothing comes ready-made. We bake baguettes every morning and make our sauces, desserts and cakes ourselves, without additives.",
+    "pm.kicker":"Gluten-free bistro · Jindřichův Hradec","pm.sub":"Menu",
+    "pm.s1":"Breakfast <small>8:00–10:30</small>","pm.s2":"Soups","pm.s3":"Drinks","pm.s4":"Mains","pm.s5":"From the counter",
+    "m1n":"English breakfast","m1d":"Eggs, bacon, beans, grilled tomato, toasted baguette from our oven",
+    "m2n":"Black Forest ham &amp; avocado sandwich","m2d":"House baguette, Black Forest ham, avocado, rocket",
+    "m3n":"Scrambled eggs with chives","m3d":"Three eggs, butter, chives, fresh baguette",
+    "m4n":"Porridge with fruit","m4d":"Gluten-free oats, seasonal fruit, honey, nuts",
+    "m5n":"Crêpes with quark","m5d":"House quark, forest berries, sour cream",
+    "m6n":"Kulajda soup with egg","m6d":"Dill, mushrooms, potatoes, poached egg",
+    "m7n":"Beef broth with noodles","m7d":"Simmered for six hours, house noodles",
+    "m8n":"Espresso","m9n":"Cappuccino",
+    "m10n":"House lemonade 0.4 l","m10d":"Elderflower, mint or ginger",
+    "m11n":"Pot of tea",
+    "m12n":"Roast pork, cabbage &amp; dumplings","m12d":"Roast shoulder, braised cabbage, our potato dumplings",
+    "m13n":"Pork tenderloin with mushroom ragout","m13d":"Pork tenderloin, forest mushrooms, crushed potatoes",
+    "m14n":"Fried cheese","m14d":"Edam in our breadcrumbs, fries, house tartare sauce",
+    "m15n":"Chicken schnitzel","m15d":"Gluten-free breading, grandma's potato salad",
+    "m16n":"Vegetable risotto","m16d":"Seasonal vegetables, parmesan, herb oil · meat-free",
+    "m17n":"House baguette","m18n":"Cream puff","m18d":"Caramel, vanilla cream","m19n":"Poppy seed cake","m20n":"Cheesecake with fruit",
+    "m21n":"Cake to order","m21d":"Order three days in advance","m21p":"from 650",
+    "pm.foot":"Everything is cooked gluten-free, in a kitchen with no gluten at all. Lactose-free is possible too, just ask. Prices in CZK incl. VAT.",
+    "pm.note":"Sample menu. Apart from two breakfasts from your Facebook page, items and prices are illustrative.",
+    "stamp.ring":"100 % GLUTEN-FREE · HOMEMADE · ","stamp.a":"All","stamp.b":"from one kitchen",
+    "ma.1":"<b>Daily menu.</b> We cook something different every day. We post it here and on Facebook in the morning so you know what to look forward to.",
+    "ma.2":"<b>Takeaway.</b> We pack your food in a returnable box. 80 CZK deposit, refunded when you bring it back.",
+    "ma.print":"Print the menu",
+    "k.eb":"How we do things","k.h2":"We make everything ourselves",
+    "k.1h":"No ready-made products","k.1p":"Everything you taste here we baked or cooked ourselves. Nothing arrives ready-made and we don't put additives in the food.",
+    "k.2h":"No cross-contamination risk","k.2p":"There isn't a single ingredient with gluten in the bistro. You don't have to wonder what it was fried in or cut with.",
+    "k.3h":"Family-run","k.3p":"The bistro is run by Iveta Vrzáková. If you need something adjusted, you tell the person who cooks it.",
+    "k.4h":"Cash only","k.4p":"No cards yet, please bring cash. The entrance is not step-free.",
+    "g.eb":"For coeliacs","g.h2":"What you'll want to know before you come",
+    "g.lede":"If you eat gluten-free, you have questions before you even open the door. Here are the answers.",
+    "g.q1":"What does “100 % gluten-free” mean here?","g.a1":"That there is no ingredient containing gluten anywhere in the bistro. Not a gluten-free option next to a regular kitchen, but one kitchen where gluten has never been.",
+    "g.q2":"How do you handle cross-contamination?","g.a2":"There is nothing to separate. One fryer, one set of boards, one oven, all gluten-free. Cross-contamination happens where gluten is next door. Here it isn't.",
+    "g.q3":"What about oats?","g.a3":"Oats don't contain gluten themselves, but are often processed with wheat. We only use oats labelled gluten-free. If you'd rather avoid them, say so, we have breakfasts without oats too.",
+    "g.q4":"Do you do lactose-free?","g.a4":"Yes. Tell us when you order and the kitchen will adjust the dish. Most desserts can be made lactose-free, cakes to order always.",
+    "g.q5":"How do I know the allergens?","g.a5":"We'll tell you for every dish at the counter, on the menu and in the daily menu. We buy from suppliers we know and read every label to the end.",
+    "g.q6":"It's my first time. What should I say?","g.a6":"Nothing special. You don't ask if it can be made gluten-free here, because everything is. Just tell us if you have any other dietary needs so we can advise you.",
+    "v.eb":"Find us","v.hours":"Opening hours","v.addr":"Address","v.map":"Open in maps →","v.call":"Call us","v.mail":"Or write to","v.good":"Good to know",
+    "v.goodp":"We're a short walk from the square and you can park right on the street. Children welcome. The entrance is not step-free and we take cash only.",
+    "d.1":"Monday","d.2":"Tuesday","d.3":"Wednesday","d.4":"Thursday","d.5":"Friday","d.6":"Saturday","d.0":"Sunday",
+    "map.here":"U Vrzky","map.church":"St John's church","map.square":"main square","map.castle":"castle","map.pond":"Vajgar pond","map.n":"N","map.street":"Svatojánská",
+    "map.cap":"Schematic map. From the main square it's a three-minute walk.",
+    "r.count":"45 reviews<br>on Firmy.cz","r.q":"“Big choice, very tasty food, simply everything great.”",
+    "r.src":"Guest review · Staff 4.9 · Food 5.0 · Ambience 5.0<br>Ratings taken from public profiles on Firmy.cz, Slevomat and Mňambezlepku.",
+    "e.eb":"Events &amp; celebrations","e.h2":"We'll cook for your gathering too",
+    "e.lede":"You can book the whole bistro. We'll plan the menu around what you like. And none of your guests has to worry about what they can and can't eat.",
+    "e.l1":"Family celebrations and birthdays","e.l2":"Company get-togethers and parties","e.l3":"Small weddings","e.l4":"Funeral receptions","e.l5":"Cakes to order",
+    "e.cta":"Call to arrange a date",
+    "c.eb":"Cake to order","c.h2":"Order a cake everyone can eat",
+    "c.lede":"Birthday, wedding, or just because. Fill in what you need and we'll get back to you by the next day with confirmation and a price. Collect the cake at the bistro.",
+    "c.flavor":"Flavour","c.f1":"Chocolate","c.f2":"Quark with fruit","c.f3":"Nut with caramel","c.f5":"Other, see note",
+    "c.size":"Size","c.s1":"for 6 people","c.s2":"for 10 people","c.s3":"for 15 people","c.s4":"for 20 or more",
+    "c.date":"Pick-up date","c.phone":"Phone","c.name":"Name","c.note":"Message on the cake, allergies, notes",
+    "c.noteph":"E.g. lactose-free, message “Happy birthday, Anna”",
+    "c.submit":"Send request","c.small":"Sample form, nothing is sent.",
+    "c.ah":"Good to know","c.a1":"All cakes are gluten-free, lactose-free on request.","c.a2":"Please order at least three days ahead so we can bake in peace.",
+    "c.a3":"Collect at the bistro during opening hours, pay cash on pick-up.","c.a4":"The price depends on size and decoration; we'll tell you in the confirmation.",
+    "c.from":"from","c.per":"for a cake for 6",
+    "f.up":"Top ↑","f.end":"Website proposal, not the business's official page. Prepared by <a href=\"mailto:info@filsns.cz\" style=\"color:var(--gold-ink);font-weight:500\">filsns s.r.o.</a> The bistro is operated by VIDČ FOOD s.r.o., company ID 19295952.",
+    "mb.1":"Menu","mb.2":"Call",
+    "alt.hero":"Breakfast plate with eggs, vegetables and tomatoes on light ceramic","alt.pekarna":"Bakery counter with freshly baked pastries","alt.interier":"Bright corner of a bistro with a counter, bar stools and a wooden table","alt.stul":"A laid table with plates of food and cups of coffee",
+    "_title":"Gluten-free Bistro U Vrzky (website proposal)",
+    "_open":"Open now, until {t} today","_opensAt":"Opening today at {t}","_closedNext":"Closed, we open {d} at {t}","_closed":"Closed",
+    "_days":["on Sunday","on Monday","on Tuesday","on Wednesday","on Thursday","on Friday","on Saturday"],
+    "_errName":"Please fill in your name.","_errPhone":"The phone number doesn't look right.","_errDate":"Please choose a date at least three days ahead.",
+    "_ok":"<b>Sample only, nothing was sent.</b>On the live site the bistro would now receive an email: {s}. You would get a confirmation by the next day."
+  },
+  de: {
+    "demo.tag":"Website-Entwurf",
+    "demo.text":"Dies ist nicht die offizielle Website des Bistros, sondern ein unverbindlicher Entwurf von filsns s.r.o. Die Fotos sind Symbolbilder, die Angaben stammen aus öffentlichen Quellen.",
+    "demo.link":"Wer das geschickt hat →",
+    "brand.sub":"100 % glutenfrei",
+    "nav.listek":"Speisekarte","nav.kuchyne":"Wie wir kochen","nav.pruvodce":"Für Zöliakie","nav.navsteva":"Anfahrt","nav.akce":"Feiern","nav.dort":"Torten",
+    "nav.hours":"Öffnungszeiten","nav.toggle":"Menü",
+    "hero.h1":"Die ganze Karte.<br><em>Glutenfrei.</em> Ohne Nachfragen.",
+    "hero.sub":"Ein Familienbistro im Zentrum von Jindřichův Hradec. Bestellen Sie, was Sie möchten, Gluten gibt es bei uns nicht. Frühstück, Mittagessen, frisch gebackene Baguettes und Torten.",
+    "hero.cta1":"Zur Speisekarte","hero.cta2":"Anrufen und bestellen",
+    "hero.st1":"<b>5,0</b> bei 45 Bewertungen auf Firmy.cz","hero.st2":"Es kocht <b>Iveta Vrzáková</b>","hero.st3":"<b>Zum Mitnehmen</b> in Mehrwegboxen",
+    "claim.h2":"In dieser Küche gibt es kein Gluten. Überhaupt keins.",
+    "claim.p1":"Die meisten Restaurants haben eine „glutenfreie Variante“. Und Sie hoffen, dass sie nicht in derselben Pfanne gebraten und auf demselben Brett geschnitten wurde. Bei uns müssen Sie nicht fragen.",
+    "claim.p2":"Das ganze Bistro ist glutenfrei. Die Karte, die Theke und das gesamte Gebäck. Wir haben keine glutenfreie Ecke, wir haben ein glutenfreies Haus. Wenn Sie keine Laktose vertragen, sagen Sie es bei der Bestellung, wir finden eine Lösung.",
+    "listek.eb":"Speisekarte","listek.h2":"Was es bei uns gibt",
+    "listek.lede":"Nichts kaufen wir fertig. Baguettes backen wir jeden Morgen, Saucen, Desserts und Torten machen wir selbst, ohne Zusatzstoffe.",
+    "pm.kicker":"Glutenfreies Bistro · Jindřichův Hradec","pm.sub":"Speisekarte",
+    "pm.s1":"Frühstück <small>8:00–10:30</small>","pm.s2":"Suppen","pm.s3":"Getränke","pm.s4":"Hauptgerichte","pm.s5":"Von der Theke",
+    "m1n":"Englisches Frühstück","m1d":"Eier, Speck, Bohnen, gegrillte Tomate, geröstetes Baguette aus unserem Ofen",
+    "m2n":"Sandwich Schwarzwälder &amp; Avocado","m2d":"Hausgemachtes Baguette, Schwarzwälder Schinken, Avocado, Rucola",
+    "m3n":"Rührei mit Schnittlauch","m3d":"Drei Eier, Butter, Schnittlauch, frisches Baguette",
+    "m4n":"Haferbrei mit Obst","m4d":"Glutenfreier Hafer, Obst der Saison, Honig, Nüsse",
+    "m5n":"Palatschinken mit Quark","m5d":"Hausgemachter Quark, Waldbeeren, Sauerrahm",
+    "m6n":"Kulajda mit Ei","m6d":"Dill, Pilze, Kartoffeln, pochiertes Ei",
+    "m7n":"Rinderbrühe mit Nudeln","m7d":"Sechs Stunden gezogen, hausgemachte Nudeln",
+    "m8n":"Espresso","m9n":"Cappuccino",
+    "m10n":"Hausgemachte Limonade 0,4 l","m10d":"Holunder, Minze oder Ingwer",
+    "m11n":"Tee aus der Kanne",
+    "m12n":"Schweinebraten, Kraut &amp; Knödel","m12d":"Gebratene Schulter, geschmortes Kraut, unsere Kartoffelknödel",
+    "m13n":"Schweinefilet mit Pilzragout","m13d":"Schweinefilet, Waldpilze, Stampfkartoffeln",
+    "m14n":"Gebackener Käse","m14d":"Edamer in unserer Panade, Pommes, hausgemachte Sauce Tartare",
+    "m15n":"Hühnerschnitzel","m15d":"In glutenfreier Panade, Kartoffelsalat nach Omas Rezept",
+    "m16n":"Gemüserisotto","m16d":"Gemüse der Saison, Parmesan, Kräuteröl · ohne Fleisch",
+    "m17n":"Hausgemachtes Baguette","m18n":"Windbeutel","m18d":"Karamell, Vanillecreme","m19n":"Mohnkuchen","m20n":"Cheesecake mit Obst",
+    "m21n":"Torte auf Bestellung","m21d":"Bitte drei Tage im Voraus bestellen","m21p":"ab 650",
+    "pm.foot":"Alles wird glutenfrei gekocht, in einer Küche ganz ohne Gluten. Laktosefrei geht auch, einfach sagen. Preise in CZK inkl. MwSt.",
+    "pm.note":"Beispielkarte. Außer zwei Frühstücken von Ihrer Facebook-Seite sind Positionen und Preise nur zur Veranschaulichung.",
+    "stamp.ring":"100 % GLUTENFREI · HAUSGEMACHT · ","stamp.a":"Alles","stamp.b":"aus einer Küche",
+    "ma.1":"<b>Tagesmenü.</b> Jeden Tag kochen wir etwas anderes. Morgens stellen wir es hier und auf Facebook ein, damit Sie wissen, worauf Sie sich freuen können.",
+    "ma.2":"<b>Zum Mitnehmen.</b> Ihr Essen kommt in eine Mehrwegbox. 80 CZK Pfand, das Sie bei Rückgabe zurückbekommen.",
+    "ma.print":"Speisekarte drucken",
+    "k.eb":"So läuft es bei uns","k.h2":"Wir machen alles selbst",
+    "k.1h":"Keine Fertigprodukte","k.1p":"Alles, was Sie bei uns essen, haben wir selbst gebacken oder gekocht. Nichts kommt fertig an, und Zusatzstoffe kommen nicht ins Essen.",
+    "k.2h":"Keine Kreuzkontamination","k.2p":"Im Bistro gibt es keine einzige Zutat mit Gluten. Sie müssen nicht überlegen, worin gebraten und womit geschnitten wurde.",
+    "k.3h":"Familienbetrieb","k.3p":"Das Bistro führt Iveta Vrzáková. Wenn Sie etwas anpassen möchten, sagen Sie es direkt der Person, die kocht.",
+    "k.4h":"Nur Barzahlung","k.4p":"Karten leider noch nicht, bitte Bargeld mitnehmen. Der Eingang ist nicht barrierefrei.",
+    "g.eb":"Für Zöliakie-Betroffene","g.h2":"Was Sie vor dem Besuch wissen möchten",
+    "g.lede":"Wer glutenfrei isst, hat Fragen, noch bevor er die Tür öffnet. Hier sind die Antworten.",
+    "g.q1":"Was heißt bei Ihnen „100 % glutenfrei“?","g.a1":"Dass es im ganzen Bistro keine einzige glutenhaltige Zutat gibt. Keine glutenfreie Variante neben einer normalen Küche, sondern eine Küche, in der nie Gluten war.",
+    "g.q2":"Wie gehen Sie mit Kreuzkontamination um?","g.a2":"Wir müssen nichts trennen. Eine Fritteuse, ein Satz Bretter, ein Ofen, alles glutenfrei. Kreuzkontamination entsteht dort, wo Gluten nebenan ist. Hier ist es nicht nebenan.",
+    "g.q3":"Und Hafer?","g.a3":"Hafer selbst enthält kein Gluten, wird aber oft mit Weizen verarbeitet. Wir verwenden nur als glutenfrei gekennzeichneten Hafer. Wenn Sie ihn lieber meiden, sagen Sie es, wir haben auch Frühstück ohne Hafer.",
+    "g.q4":"Gibt es auch laktosefrei?","g.a4":"Ja. Sagen Sie es bei der Bestellung, die Küche passt das Gericht an. Die meisten Desserts gehen auch laktosefrei, Torten auf Bestellung immer.",
+    "g.q5":"Wie erkenne ich Allergene?","g.a5":"Wir nennen sie Ihnen bei jedem Gericht an der Theke, auf der Karte und im Tagesmenü. Wir kaufen bei Lieferanten, die wir kennen, und lesen jedes Etikett bis zum Ende.",
+    "g.q6":"Ich bin zum ersten Mal hier. Was soll ich sagen?","g.a6":"Nichts Besonderes. Bei uns fragen Sie nicht, ob es glutenfrei geht, denn alles geht. Sagen Sie uns nur, ob Sie noch eine andere Diät haben, damit wir Sie beraten können.",
+    "v.eb":"Anfahrt","v.hours":"Öffnungszeiten","v.addr":"Adresse","v.map":"In Karten öffnen →","v.call":"Rufen Sie uns an","v.mail":"Oder schreiben Sie an","v.good":"Gut zu wissen",
+    "v.goodp":"Wir sind nur ein paar Schritte vom Platz entfernt, parken kann man direkt in der Straße. Kinder willkommen. Der Eingang ist nicht barrierefrei, Zahlung nur bar.",
+    "d.1":"Montag","d.2":"Dienstag","d.3":"Mittwoch","d.4":"Donnerstag","d.5":"Freitag","d.6":"Samstag","d.0":"Sonntag",
+    "map.here":"U Vrzky","map.church":"Johanneskirche","map.square":"Hauptplatz","map.castle":"Schloss","map.pond":"Teich Vajgar","map.n":"N","map.street":"Svatojánská",
+    "map.cap":"Orientierungskarte. Vom Hauptplatz sind es drei Gehminuten.",
+    "r.count":"45 Bewertungen<br>auf Firmy.cz","r.q":"„Große Auswahl, sehr leckeres Essen, einfach alles super.“",
+    "r.src":"Gästebewertung · Personal 4,9 · Essen 5,0 · Ambiente 5,0<br>Bewertungen aus den öffentlichen Profilen auf Firmy.cz, Slevomat und Mňambezlepku.",
+    "e.eb":"Feiern &amp; Veranstaltungen","e.h2":"Wir kochen auch für Ihre Feier",
+    "e.lede":"Sie können das ganze Bistro reservieren. Das Menü stimmen wir auf Ihre Wünsche ab. Und keiner Ihrer Gäste muss überlegen, was er essen darf.",
+    "e.l1":"Familienfeiern und Geburtstage","e.l2":"Firmenfeiern und Partys","e.l3":"Kleine Hochzeiten","e.l4":"Trauerfeiern","e.l5":"Torten auf Bestellung",
+    "e.cta":"Termin telefonisch vereinbaren",
+    "c.eb":"Torte auf Bestellung","c.h2":"Bestellen Sie eine Torte, die jeder essen kann",
+    "c.lede":"Geburtstag, Hochzeit oder einfach so. Tragen Sie ein, was Sie brauchen, wir melden uns bis zum nächsten Tag mit Bestätigung und Preis. Abholung im Bistro.",
+    "c.flavor":"Geschmack","c.f1":"Schokolade","c.f2":"Quark mit Obst","c.f3":"Nuss mit Karamell","c.f5":"Andere, siehe Anmerkung",
+    "c.size":"Größe","c.s1":"für 6 Personen","c.s2":"für 10 Personen","c.s3":"für 15 Personen","c.s4":"für 20 oder mehr",
+    "c.date":"Abholdatum","c.phone":"Telefon","c.name":"Name","c.note":"Aufschrift, Allergien, Anmerkung",
+    "c.noteph":"z. B. laktosefrei, Aufschrift „Alles Gute, Anna“",
+    "c.submit":"Anfrage senden","c.small":"Beispielformular, es wird nichts gesendet.",
+    "c.ah":"Gut zu wissen","c.a1":"Alle Torten sind glutenfrei, auf Wunsch auch laktosefrei.","c.a2":"Bitte mindestens drei Tage im Voraus bestellen, damit wir in Ruhe backen können.",
+    "c.a3":"Abholung im Bistro während der Öffnungszeiten, Barzahlung bei Abholung.","c.a4":"Der Preis hängt von Größe und Verzierung ab, wir nennen ihn Ihnen in der Bestätigung.",
+    "c.from":"ab","c.per":"für eine Torte für 6",
+    "f.up":"Nach oben ↑","f.end":"Website-Entwurf, nicht die offizielle Seite des Betriebs. Erstellt von <a href=\"mailto:info@filsns.cz\" style=\"color:var(--gold-ink);font-weight:500\">filsns s.r.o.</a> Betreiber des Bistros ist VIDČ FOOD s.r.o., IČO 19295952.",
+    "mb.1":"Karte","mb.2":"Anrufen",
+    "alt.hero":"Frühstücksteller mit Eiern, Gemüse und Tomaten auf heller Keramik","alt.pekarna":"Bäckereitheke mit frisch gebackenem Gebäck","alt.interier":"Helle Ecke eines Bistros mit Theke, Barhockern und Holztisch","alt.stul":"Gedeckter Tisch mit Tellern und Kaffeetassen",
+    "_title":"Glutenfreies Bistro U Vrzky (Website-Entwurf)",
+    "_open":"Jetzt geöffnet, heute bis {t}","_opensAt":"Heute öffnen wir um {t}","_closedNext":"Geschlossen, wir öffnen {d} um {t}","_closed":"Geschlossen",
+    "_days":["am Sonntag","am Montag","am Dienstag","am Mittwoch","am Donnerstag","am Freitag","am Samstag"],
+    "_errName":"Bitte Namen angeben.","_errPhone":"Die Telefonnummer sieht nicht richtig aus.","_errDate":"Bitte ein Datum mindestens drei Tage im Voraus wählen.",
+    "_ok":"<b>Nur Beispiel, es wurde nichts gesendet.</b>Auf der echten Website bekäme das Bistro jetzt eine E-Mail: {s}. Sie erhielten bis zum nächsten Tag eine Bestätigung."
+  }};
+  I18N.cs = {
+    "_title":"Bezlepkové Bistro U Vrzky (návrh webu)",
+    "_open":"Máme otevřeno, dnes do {t}","_opensAt":"Dnes otevíráme v {t}","_closedNext":"Zavřeno, otevíráme {d} v {t}","_closed":"Zavřeno",
+    "_days":["v neděli","v pondělí","v úterý","ve středu","ve čtvrtek","v pátek","v sobotu"],
+    "_errName":"Doplňte prosím jméno.","_errPhone":"Telefon nevypadá správně.","_errDate":"Vyberte prosím datum aspoň tři dny dopředu.",
+    "_ok":"<b>Ukázka, objednávka se nikam neodeslala.</b>Na ostrém webu by teď bistru přišel e-mail: {s}. Vám by přišlo potvrzení do druhého dne."
+  };
+
+  /* česká výchozí verze se načte z HTML, ať je jen jednou */
+  var CS_HTML = {}, CS_T = {}, CS_ALT = {}, CS_PH = {};
+  var $$ = function(s){ return [].slice.call(document.querySelectorAll(s)); };
+  $$("[data-i18n]").forEach(function(el){ CS_HTML[el.getAttribute("data-i18n")] = el.innerHTML; });
+  $$("[data-i18n-t]").forEach(function(el){ CS_T[el.getAttribute("data-i18n-t")] = el.textContent; });
+  $$("[data-i18n-alt]").forEach(function(el){ CS_ALT[el.getAttribute("data-i18n-alt")] = el.getAttribute("alt"); });
+  $$("[data-i18n-ph]").forEach(function(el){ CS_PH[el.getAttribute("data-i18n-ph")] = el.getAttribute("placeholder"); });
+
+  var LANG = "cs";
+  function tr(k){ var d = I18N[LANG] || {}; return (k in d) ? d[k] : (I18N.cs[k] !== undefined ? I18N.cs[k] : ""); }
+  function setLang(l){
+    if (!I18N[l]) l = "cs";
+    LANG = l;
+    var d = I18N[l];
+    $$("[data-i18n]").forEach(function(el){ var k = el.getAttribute("data-i18n"); el.innerHTML = (l !== "cs" && k in d) ? d[k] : CS_HTML[k]; });
+    $$("[data-i18n-t]").forEach(function(el){ var k = el.getAttribute("data-i18n-t"); el.textContent = (l !== "cs" && k in d) ? d[k] : CS_T[k]; });
+    $$("[data-i18n-alt]").forEach(function(el){ var k = el.getAttribute("data-i18n-alt"); el.setAttribute("alt", (l !== "cs" && k in d) ? d[k] : CS_ALT[k]); });
+    $$("[data-i18n-ph]").forEach(function(el){ var k = el.getAttribute("data-i18n-ph"); el.setAttribute("placeholder", (l !== "cs" && k in d) ? d[k] : CS_PH[k]); });
+    document.documentElement.lang = l;
+    document.title = tr("_title");
+    $$("#lang button").forEach(function(b){ b.classList.toggle("on", b.getAttribute("data-lang") === l); });
+    try { localStorage.setItem("uvrzky-lang", l); } catch(e){}
+    renderOpen();
+    var ok = document.querySelector("#cakeForm .ok"); if (ok) ok.remove();
+    document.getElementById("cakeErr").textContent = "";
+  }
+  $$("#lang button").forEach(function(b){ b.addEventListener("click", function(){ setLang(b.getAttribute("data-lang")); }); });
+
+  /* ================= menu ================= */
   var nav = document.getElementById("nav");
   var onScroll = function(){ nav.classList.toggle("solid", window.scrollY > 20); };
   onScroll(); window.addEventListener("scroll", onScroll, {passive:true});
@@ -743,46 +1158,67 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     if (e.target.tagName === "A"){ links.classList.remove("open"); toggle.setAttribute("aria-expanded","false"); }
   });
 
+  /* ================= otevírací doba ================= */
   var HOURS = {0:[510,1080], 1:[480,1080], 2:[480,1080], 3:[480,1080], 4:[480,1080], 5:[480,1080], 6:[510,1080]};
-  var NAMES = ["v neděli","v pondělí","v úterý","ve středu","ve čtvrtek","v pátek","v sobotu"];
   function hhmm(m){ return Math.floor(m/60) + ":" + String(m%60).padStart(2,"0"); }
-
-  var now = new Date(), day = now.getDay(), mins = now.getHours()*60 + now.getMinutes();
-  var t = HOURS[day], flag = document.getElementById("openflag"), txt = document.getElementById("openText");
-
-  if (t && mins >= t[0] && mins < t[1]) {
-    txt.textContent = "Máme otevřeno, dnes do " + hhmm(t[1]);
-  } else {
-    flag.classList.add("shut");
-    if (t && mins < t[0]) {
-      txt.textContent = "Dnes otevíráme v " + hhmm(t[0]);
+  function renderOpen(){
+    var now = new Date(), day = now.getDay(), mins = now.getHours()*60 + now.getMinutes();
+    var t = HOURS[day], flag = document.getElementById("openflag"), txt = document.getElementById("openText");
+    flag.classList.remove("shut");
+    if (t && mins >= t[0] && mins < t[1]) {
+      txt.textContent = tr("_open").replace("{t}", hhmm(t[1]));
     } else {
-      var d = day, n = null;
-      for (var i = 0; i < 7; i++){ d = (d+1) % 7; if (HOURS[d]) { n = d; break; } }
-      txt.textContent = n === null ? "Zavřeno" : "Zavřeno, otevíráme " + NAMES[n] + " v " + hhmm(HOURS[n][0]);
+      flag.classList.add("shut");
+      if (t && mins < t[0]) {
+        txt.textContent = tr("_opensAt").replace("{t}", hhmm(t[0]));
+      } else {
+        var d = day, n = null;
+        for (var i = 0; i < 7; i++){ d = (d+1) % 7; if (HOURS[d]) { n = d; break; } }
+        txt.textContent = n === null ? tr("_closed") : tr("_closedNext").replace("{d}", tr("_days")[n]).replace("{t}", hhmm(HOURS[n][0]));
+      }
     }
+    var row = document.querySelector('#hours [data-day="' + day + '"]');
+    if (row) row.classList.add("today");
   }
-  var row = document.querySelector('#hours [data-day="' + day + '"]');
-  if (row) row.classList.add("today");
 
-  /* odhalování sekcí při scrollu */
-  var rv = [].slice.call(document.querySelectorAll(".rv"));
+  /* ================= formulář: dort ================= */
+  var form = document.getElementById("cakeForm");
+  var err = document.getElementById("cakeErr");
+  var dateIn = document.getElementById("c-date");
+  function iso(dt){ return dt.getFullYear() + "-" + String(dt.getMonth()+1).padStart(2,"0") + "-" + String(dt.getDate()).padStart(2,"0"); }
+  var minD = new Date(); minD.setDate(minD.getDate() + 3);
+  var defD = new Date(); defD.setDate(defD.getDate() + 5);
+  dateIn.min = iso(minD); dateIn.value = iso(defD);
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault(); err.textContent = "";
+    var name = document.getElementById("c-name"), phone = document.getElementById("c-phone");
+    if (name.value.trim().length < 2) { err.textContent = tr("_errName"); name.focus(); return; }
+    if (!/^\+?[0-9]{9,13}$/.test(phone.value.replace(/[\s-]/g,""))) { err.textContent = tr("_errPhone"); phone.focus(); return; }
+    if (!dateIn.value || dateIn.value < iso(minD)) { err.textContent = tr("_errDate"); dateIn.focus(); return; }
+    var fl = document.getElementById("c-flavor"), sz = document.getElementById("c-size");
+    var when = new Date(dateIn.value + "T12:00:00");
+    var loc = {cs:"cs-CZ", en:"en-GB", de:"de-DE"}[LANG];
+    var s = fl.options[fl.selectedIndex].text + ", " + sz.options[sz.selectedIndex].text + ", " + when.toLocaleDateString(loc, {day:"numeric", month:"long"});
+    var old = form.querySelector(".ok"); if (old) old.remove();
+    var box = document.createElement("div"); box.className = "ok"; box.setAttribute("role","status");
+    box.innerHTML = tr("_ok").replace("{s}", "<strong>" + s + "</strong>");
+    form.appendChild(box); box.scrollIntoView({block:"nearest", behavior:"smooth"});
+  });
+
+  /* ================= odhalování a scrollspy ================= */
+  var rv = $$(".rv");
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
-      });
+      entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
     }, {rootMargin:"0px 0px -8% 0px", threshold:.06});
     rv.forEach(function(el){ io.observe(el); });
 
-    /* zvýraznění aktuální sekce v menu */
     var navA = {};
-    [].forEach.call(document.querySelectorAll(".navlinks a"), function(a){ navA[a.getAttribute("href").slice(1)] = a; });
+    $$(".navlinks a").forEach(function(a){ navA[a.getAttribute("href").slice(1)] = a; });
     var spy = new IntersectionObserver(function(entries){
       entries.forEach(function(en){
-        if (en.isIntersecting) {
-          Object.keys(navA).forEach(function(k){ navA[k].classList.toggle("active", k === en.target.id); });
-        }
+        if (en.isIntersecting) { Object.keys(navA).forEach(function(k){ navA[k].classList.toggle("active", k === en.target.id); }); }
       });
     }, {rootMargin:"-40% 0px -55% 0px", threshold:0});
     Object.keys(navA).forEach(function(k){ var s = document.getElementById(k); if (s) spy.observe(s); });
@@ -790,17 +1226,27 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     rv.forEach(function(el){ el.classList.add("in"); });
   }
 
-  /* fotky se objeví až po načtení, bez skoku */
-  [].forEach.call(document.querySelectorAll(".ph img"), function(im){
+  /* fotky se objeví až po načtení */
+  $$(".ph img").forEach(function(im){
     var done = function(){ im.classList.add("ld"); };
     if (im.complete && im.naturalWidth) { done(); } else { im.addEventListener("load", done); im.addEventListener("error", done); }
   });
 
-  /* ochrana obsahu ukazky: nic nejde vybrat, zkopirovat, pretahnout ani otevrit pravym tlacitkem */
+  /* ochrana obsahu ukázky: nic nejde vybrat, zkopírovat, přetáhnout ani otevřít pravým tlačítkem (formulář výjimka) */
   ["copy","cut","contextmenu","dragstart","selectstart"].forEach(function(ev){
-    document.addEventListener(ev, function(e){ e.preventDefault(); });
+    document.addEventListener(ev, function(e){
+      if (e.target && e.target.closest && e.target.closest("input,textarea,select")) return;
+      e.preventDefault();
+    });
   });
-  document.querySelectorAll("img").forEach(function(im){ im.setAttribute("draggable","false"); });
+  $$("img").forEach(function(im){ im.setAttribute("draggable","false"); });
+
+  /* ================= výchozí jazyk ================= */
+  var want = null;
+  try { want = new URLSearchParams(location.search).get("lang"); } catch(e){}
+  if (!want) { try { want = localStorage.getItem("uvrzky-lang"); } catch(e){} }
+  if (!want) { var nl = (navigator.language || "cs").slice(0,2).toLowerCase(); want = (nl === "de" || nl === "en") ? nl : "cs"; }
+  setLang(want);
 })();
 </script>
 </body>
