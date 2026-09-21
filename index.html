@@ -355,26 +355,33 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
 .guide .ph{position:sticky;top:6rem}
 .guide .ph img{aspect-ratio:3/4;object-fit:cover;width:100%}
 
-/* ---- kreslená mapka ---- */
-.map{margin:0;background:var(--sand-2);border:1px solid var(--rule);padding:clamp(1rem,2.5vw,1.5rem);position:relative}
-.map::after{content:"";position:absolute;inset:8px;border:1px solid rgba(184,146,78,.45);pointer-events:none}
-.map svg{width:100%;height:auto;display:block}
-.map .st{fill:none;stroke:var(--gold-ink);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.map .st2{stroke-width:1.1;opacity:.6}
-.map .lbl{font-family:var(--disp);font-style:italic;font-size:15px;fill:var(--ink-soft)}
-.map .lbl.b{font-style:normal;font-weight:700;font-size:17px;fill:var(--brown)}
-.map .lbl.s{font-family:var(--sans);font-style:normal;font-size:9px;letter-spacing:2px;fill:var(--muted)}
-.map .water{fill:rgba(94,112,89,.14);stroke:var(--sage);stroke-width:1.2}
-.map .sq{fill:rgba(184,146,78,.12)}
-.map .pin{fill:var(--gold-ink)}
-.map .pulse{fill:none;stroke:var(--gold-ink);stroke-width:1.2;transform-box:fill-box;transform-origin:center;opacity:0}
+/* ---- mapa ---- */
+.map{margin:0;background:var(--sand-2);border:1px solid var(--rule);padding:clamp(.8rem,2vw,1.2rem);position:relative}
+.map::after{content:"";position:absolute;inset:6px;border:1px solid rgba(184,146,78,.45);pointer-events:none}
+.map iframe{display:block;width:100%;aspect-ratio:4/5;border:0;filter:saturate(.82) sepia(.1)}
 .map figcaption{margin-top:.8rem;font-size:.8rem;color:var(--muted);text-align:center}
-.js .map .st,.js .map .water{stroke-dasharray:900;stroke-dashoffset:900}
-.js .map.in .st,.js .map.in .water{animation:draw 1.6s cubic-bezier(.3,.6,.2,1) forwards;animation-delay:calc(var(--i,0) * .12s)}
-.js .map .lbl,.js .map .pin,.js .map .sq{opacity:0;transition:opacity .7s ease 1.1s}
-.js .map.in .lbl,.js .map.in .pin,.js .map.in .sq{opacity:1}
-.js .map.in .pulse{animation:pulse 2.6s ease-out 1.6s infinite}
-@keyframes pulse{0%{transform:scale(.5);opacity:.6}100%{transform:scale(2.6);opacity:0}}
+@media (max-width:900px){ .map iframe{aspect-ratio:4/3} }
+
+/* ---- recenze jako lístečky ---- */
+.reviews{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1.2rem,2.5vw,1.8rem);align-items:start}
+.rc{position:relative;background:linear-gradient(180deg,#FCF8F0,#F6EFE2);padding:1.5rem 1.4rem 1.3rem;
+  box-shadow:0 1px 2px rgba(51,38,28,.08),0 14px 34px -18px rgba(51,38,28,.42);
+  transform:rotate(var(--r,0deg));transition:transform .55s cubic-bezier(.2,.7,.2,1),box-shadow .55s,opacity .75s ease}
+.rc::before{content:"";position:absolute;inset:7px;border:1px solid rgba(184,146,78,.45);pointer-events:none}
+.rc::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.8;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .06 0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>")}
+.rc:hover{transform:rotate(0deg) translateY(-3px);box-shadow:0 1px 2px rgba(51,38,28,.08),0 22px 44px -18px rgba(51,38,28,.48)}
+.js .rc.rv{transform:rotate(var(--r,0deg)) translateY(22px)}
+.js .rc.rv.in{transform:rotate(var(--r,0deg))}
+.js .rc.rv.in:hover{transform:rotate(0deg) translateY(-3px)}
+.rc .stars{color:var(--gold);letter-spacing:.14em;font-size:.82rem}
+.rc .q{font-family:var(--disp);font-style:italic;font-size:1.12rem;line-height:1.45;margin:.55rem 0 .95rem;color:var(--ink)}
+.rc .who{font-size:.8rem;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:.2rem .7rem;align-items:baseline}
+.rc .who b{font-weight:500;color:var(--ink)}
+.rc .who a{color:var(--gold-ink);text-decoration:none;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;margin-left:auto}
+.rc .who a:hover{text-decoration:underline;text-underline-offset:3px}
+@media (max-width:900px){ .reviews{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:600px){ .reviews{grid-template-columns:1fr} .rc,.rc:hover,.js .rc.rv.in{transform:none} }
 
 /* ---- objednávka dortu ---- */
 .cake{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(2rem,5vw,4.5rem);align-items:start}
@@ -508,7 +515,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
       <symbol id="i-pin" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="4.5" rx="2.25"/><path d="M2.5 12.25H5M19 12.25h2.5"/></symbol>
       <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8.6-8 9.5C7.5 20.6 4 17 4 12V6z"/><path d="M8.6 12.2l2.4 2.4 4.6-5"/></symbol>
       <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.2-4.6-7.2-10.2A3.9 3.9 0 0 1 12 7.4a3.9 3.9 0 0 1 7.2 2.4C19.2 15.4 12 20 12 20z"/></symbol>
-      <symbol id="i-cash" viewBox="0 0 24 24"><rect x="2.5" y="6.5" width="19" height="11" rx="1.5"/><circle cx="12" cy="12" r="2.6"/><path d="M6 12h.01M18 12h.01"/></symbol>
+      <symbol id="i-bowl" viewBox="0 0 24 24"><path d="M3 11.5h18c0 4.5-3.5 7.5-9 7.5s-9-3-9-7.5z"/><path d="M7 7.5h10M12 4.5v3"/></symbol>
     </svg>
 
     <div class="paper-stage rv">
@@ -632,11 +639,11 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
           <p data-i18n="k.3p">Bistro vede Iveta Vrzáková. Když potřebujete něco upravit, řeknete to rovnou tomu, kdo vaří.</p>
         </div>
       </div>
-      <div class="fact warn rv" style="--d:.3s">
-        <span class="ic" aria-hidden="true"><svg><use href="#i-cash"/></svg></span>
+      <div class="fact rv" style="--d:.3s">
+        <span class="ic" aria-hidden="true"><svg><use href="#i-bowl"/></svg></span>
         <div>
-          <h4 data-i18n="k.4h">Platí se hotově</h4>
-          <p data-i18n="k.4p">Kartou zatím bohužel ne, vezměte si prosím hotovost. Vstup do bistra není bezbariérový.</p>
+          <h4 data-i18n="k.4h">Přijďte i se psem</h4>
+          <p data-i18n="k.4p">Pejsci jsou u nás vítaní. Když je venku horko, dostanou misku s vodou dřív, než si o ni řeknete.</p>
         </div>
       </div>
     </div>
@@ -690,7 +697,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
         <div class="blk">
           <h4 data-i18n="v.addr">Adresa</h4>
           <p>Svatojánská 144/1<br>377 01 Jindřichův Hradec I</p>
-          <p style="margin-top:.7rem"><a class="maplink" href="https://mapy.cz/zakladni?q=Svatojánská%20144%20Jindřichův%20Hradec" target="_blank" rel="noopener" data-i18n="v.map">Otevřít v mapách →</a></p>
+          <p style="margin-top:.7rem"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bezlepkov%C3%A9+Bistro+u+Vrzky,+Svatoj%C3%A1nsk%C3%A1+144,+Jind%C5%99ich%C5%AFv+Hradec" target="_blank" rel="noopener" data-i18n="v.map">Otevřít v mapách →</a></p>
         </div>
 
         <div class="blk">
@@ -702,47 +709,13 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
 
         <div class="blk">
           <h4 data-i18n="v.good">Dobré vědět</h4>
-          <p data-i18n="v.goodp">Jsme kousek od centra a zastavit se dá přímo v ulici. S dětmi jste vítaní. Vstup není bezbariérový a platí se hotově.</p>
+          <p data-i18n="v.goodp">Jsme kousek od centra a zastavit se dá přímo v ulici. S dětmi jste vítaní. Vstup není bezbariérový.</p>
         </div>
       </div>
 
-      <figure class="map rv" style="--d:.12s" aria-label="Orientační mapka okolí">
-        <svg viewBox="0 0 520 600" role="img">
-          <!-- ulice -->
-          <path class="st" style="--i:0" d="M60 350 C130 340 190 336 250 338 C320 340 400 346 480 356"/>
-          <path class="st st2" style="--i:1" d="M120 250 C160 262 200 268 250 268 C310 268 360 262 410 250"/>
-          <path class="st st2" style="--i:2" d="M180 470 C220 458 260 454 300 456 C340 458 380 466 420 480"/>
-          <path class="st st2" style="--i:3" d="M110 100 C150 130 190 170 230 210"/>
-          <path class="st st2" style="--i:4" d="M420 120 C390 160 360 200 330 240"/>
-          <!-- náměstí -->
-          <rect class="sq" x="190" y="300" width="140" height="96" rx="6"/>
-          <path class="st" style="--i:5" d="M190 300 H330 V396 H190 Z"/>
-          <circle class="st" style="--i:6" cx="260" cy="348" r="7"/>
-          <!-- Svatojánská: z náměstí nahoru ke kostelu -->
-          <path class="st" style="--i:7" id="svj" d="M262 300 C264 260 262 215 258 175 C255 148 258 122 268 100"/>
-          <!-- kostel sv. Jana -->
-          <path class="st" style="--i:8" d="M250 96 H310 V56 L280 34 L250 56 Z M280 20 V34 M272 26 H288 M276 96 V76 H284 V96"/>
-          <!-- zámek -->
-          <path class="st" style="--i:9" d="M56 470 V420 H80 V404 H96 V420 H120 V470 Z M88 470 V444 H100 V470 M56 420 L68 396 L80 420"/>
-          <path class="st st2" style="--i:10" d="M120 452 H160 V470 H120"/>
-          <!-- Vajgar -->
-          <path class="water" style="--i:11" d="M330 500 C350 462 420 450 470 470 C512 488 512 540 480 566 C440 596 370 592 340 566 C316 546 318 522 330 500 Z"/>
-          <path class="st st2" style="--i:12" d="M370 520 q10-6 20 0 t20 0 t20 0 M380 545 q10-6 20 0 t20 0 t20 0"/>
-          <!-- kompas -->
-          <path class="st" style="--i:13" d="M470 52 L462 80 L470 72 L478 80 Z M470 52 V92"/>
-          <!-- pin -->
-          <circle class="pulse" cx="260" cy="200" r="10"/>
-          <path class="pin" d="M260 172 c-9 0-15 7-15 15 0 11 15 27 15 27 s15-16 15-27c0-8-6-15-15-15z m0 20a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
-          <!-- popisky -->
-          <text class="lbl b" x="282" y="196" data-i18n-t="map.here">U Vrzky</text>
-          <text class="lbl" x="300" y="46" data-i18n-t="map.church">kostel sv. Jana</text>
-          <text class="lbl" x="200" y="424" data-i18n-t="map.square">náměstí Míru</text>
-          <text class="lbl" x="56" y="498" data-i18n-t="map.castle">zámek</text>
-          <text class="lbl" x="392" y="590" data-i18n-t="map.pond">rybník Vajgar</text>
-          <text class="lbl s" x="464" y="108" data-i18n-t="map.n">S</text>
-          <text class="lbl" font-size="13" dy="-6"><textPath href="#svj" startOffset="18%" data-i18n-t="map.street">Svatojánská</textPath></text>
-        </svg>
-        <figcaption data-i18n="map.cap">Orientační mapka. Z náměstí Míru jste u nás za tři minuty pěšky.</figcaption>
+      <figure class="map rv" style="--d:.12s">
+        <iframe id="gmap" src="https://www.google.com/maps?q=Bezlepkov%C3%A9+Bistro+u+Vrzky,+Svatoj%C3%A1nsk%C3%A1+144,+Jind%C5%99ich%C5%AFv+Hradec&z=16&hl=cs&output=embed" title="Mapa: Bezlepkové Bistro U Vrzky" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <figcaption data-i18n="map.cap">Z náměstí Míru jste u nás za tři minuty pěšky.</figcaption>
       </figure>
     </div>
   </div>
@@ -838,11 +811,53 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
         <ul>
           <li data-i18n="c.a1">Všechny dorty jsou bez lepku, na přání i bez laktózy.</li>
           <li data-i18n="c.a2">Objednávejte aspoň tři dny předem, ať máme čas péct v klidu.</li>
-          <li data-i18n="c.a3">Vyzvednutí v bistru v otevírací době, platba hotově při převzetí.</li>
+          <li data-i18n="c.a3">Vyzvednutí v bistru v otevírací době, platba při převzetí.</li>
           <li data-i18n="c.a4">Cena záleží na velikosti a zdobení, řekneme vám ji hned v potvrzení.</li>
         </ul>
         <p class="price"><span data-i18n="c.from">od</span> 650 Kč <small data-i18n="c.per">za dort pro 6 osob</small></p>
       </aside>
+    </div>
+  </div>
+</section>
+
+<section class="sec tinted" id="recenze">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow" data-i18n="rv.eb">Recenze</p>
+      <h2 data-i18n="rv.h2">Co o nás říkají hosté</h2>
+      <p class="lede" data-i18n="rv.lede">Doslova, tak jak to napsali. U každé je odkaz na zdroj.</p>
+    </div>
+    <div class="reviews">
+      <article class="rc rv" style="--r:-1.1deg;--d:.0s">
+        <span class="stars" aria-label="5 z 5">★★★★★</span>
+        <p class="q">„Milá obsluha, výborné jídlo - měl jsem z denní nabídky cuketovou polévku a karbanátky s bramborovou kaší. Cenově velmi přístupné. Lze platit kartou.“</p>
+        <p class="who"><b>Stanislav Staněk</b><span>17. 8. 2026</span><a href="https://www.firmy.cz/detail/13538608-bezlepkove-bistro-u-vrzky-jindrichuv-hradec-i.html" target="_blank" rel="noopener"><span data-i18n="rv.src">zdroj</span>: Firmy.cz</a></p>
+      </article>
+      <article class="rc rv" style="--r:.8deg;--d:.08s">
+        <span class="stars" aria-label="5 z 5">★★★★★</span>
+        <p class="q">„Jezdíme sem dá se říci pravidelně. Ráj pro bezlepkáře. Naposled, když jsme zde byli a venku bylo vedro, slečna servírka automaticky donesla i misku s vodou pro našeho pejska.“</p>
+        <p class="who"><b>Luboš Dufek</b><span>23. 7. 2025</span><a href="https://www.firmy.cz/detail/13538608-bezlepkove-bistro-u-vrzky-jindrichuv-hradec-i.html" target="_blank" rel="noopener"><span data-i18n="rv.src">zdroj</span>: Firmy.cz</a></p>
+      </article>
+      <article class="rc rv" style="--r:-.6deg;--d:.16s">
+        <span class="stars" aria-label="5 z 5">★★★★★</span>
+        <p class="q">„Všechno bez lepku za normální ceny. Já měla výbornou koprovku a na později koláček, který byl famózní 👌 obsluha i paní majitelka jsou moc milé, prostředí bistra je sympatické, není co vytknout.“</p>
+        <p class="who"><b>Kateřina Železná</b><span>15. 7. 2025</span><a href="https://www.firmy.cz/detail/13538608-bezlepkove-bistro-u-vrzky-jindrichuv-hradec-i.html" target="_blank" rel="noopener"><span data-i18n="rv.src">zdroj</span>: Firmy.cz</a></p>
+      </article>
+      <article class="rc rv" style="--r:1deg;--d:.24s">
+        <span class="stars" aria-label="5 z 5">★★★★★</span>
+        <p class="q">„Skvělé prostředí i servis.“</p>
+        <p class="who"><b>Hana</b><span>2025</span><a href="https://www.slevomat.cz/podnik/184930-bezlepkove-bistro-u-vrzky" target="_blank" rel="noopener"><span data-i18n="rv.src">zdroj</span>: Slevomat</a></p>
+      </article>
+      <article class="rc rv" style="--r:-.9deg;--d:.32s">
+        
+        <p class="q">“All the food is 100% gluten-free and delicious.”</p>
+        <p class="who"><b><span data-i18n="rv.anon">Host bistra</span></b><span data-i18n="rv.a17">17 lidí to potvrdilo</span><a href="https://www.atly.com/gluten-free/location/Bezlepkov%C3%A9-Bistro-u-Vrzky" target="_blank" rel="noopener"><span data-i18n="rv.src">zdroj</span>: Atly</a></p>
+      </article>
+      <article class="rc rv" style="--r:.5deg;--d:.4s">
+        
+        <p class="q">“The gluten-free Czech dishes here are tasty and unique.”</p>
+        <p class="who"><b><span data-i18n="rv.anon">Host bistra</span></b><span data-i18n="rv.a20">20 lidí to potvrdilo</span><a href="https://www.atly.com/gluten-free/location/Bezlepkov%C3%A9-Bistro-u-Vrzky" target="_blank" rel="noopener"><span data-i18n="rv.src">zdroj</span>: Atly</a></p>
+      </article>
     </div>
   </div>
 </section>
@@ -860,7 +875,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
       <ul class="plist rv">
         <li><span class="n">01</span><span><b>Na internetu o vás kolují tři různé otevírací doby.</b> Na třech portálech jsou tři verze a liší se i v tom, jestli máte v neděli otevřeno. Web je jediné místo, které to může rozhodnout.</span></li>
         <li><span class="n">02</span><span><b>Google neví, že jste restaurace.</b> Z Facebooku to nepozná. Když to má na webu správně zapsané, ukáže vás i s otevírací dobou a hodnocením.</span></li>
-        <li><span class="n">03</span><span><b>Máte 5,0 z 45 hodnocení</b> a nikde to není vidět hned. Přitom je to to nejlepší, co se o vás dá říct.</span></li>
+        <li><span class="n">03</span><span><b>Máte 5,0 z 45 hodnocení</b> a nikde to není vidět hned. Přitom je to to nejlepší, co se o vás dá říct. Šest z nich jsme dali doslova na web, s odkazem na zdroj.</span></li>
         <li><span class="n">04</span><span><b>Web mluví i anglicky a německy.</b> Hradec je půl hodiny od Rakouska a celiaci cestují s plánem, kde se najíst. Přepínač je vpravo nahoře.</span></li>
         <li><span class="n">05</span><span><b>Dort si u vás objednají z mobilu.</b> Formulář dole přijde na váš e-mail, vy jen potvrdíte termín a cenu.</span></li>
       </ul>
@@ -880,6 +895,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
             <li><b>Váš aktuální lístek s cenami.</b> Máme jen dvě ceny z vašeho Facebooku, zbytek lístku je jen pro představu.</li>
             <li><b>Pár vlastních fotek.</b> Ty tady jsou ilustrační, vaše jídlo bude vypadat líp.</li>
             <li><b>Zkontrolovat sekci pro celiaky.</b> Napsali jsme ji podle toho, jak to u vás podle recenzí chodí. Cokoliv upravíme.</li>
+            <li><b>Potvrdit platbu kartou.</b> Firmy.cz uvádí jen hotovost, ale host v srpnu 2026 píše, že kartou zaplatil. Na web jsme to radši nedávali vůbec.</li>
           </ol>
         </div>
 
@@ -920,7 +936,6 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
   "priceRange":"$$",
   "telephone":"+420734718428",
   "email":"bezlepkovebistro@gmail.com",
-  "paymentAccepted":"Cash",
   "address":{"@type":"PostalAddress","streetAddress":"Svatojánská 144/1","addressLocality":"Jindřichův Hradec","postalCode":"37701","addressCountry":"CZ"},
   "openingHoursSpecification":[
     {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"},
@@ -984,7 +999,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     "k.1h":"No ready-made products","k.1p":"Everything you taste here we baked or cooked ourselves. Nothing arrives ready-made and we don't put additives in the food.",
     "k.2h":"No cross-contamination risk","k.2p":"There isn't a single ingredient with gluten in the bistro. You don't have to wonder what it was fried in or cut with.",
     "k.3h":"Family-run","k.3p":"The bistro is run by Iveta Vrzáková. If you need something adjusted, you tell the person who cooks it.",
-    "k.4h":"Cash only","k.4p":"No cards yet, please bring cash. The entrance is not step-free.",
+    "k.4h":"Dogs welcome","k.4p":"Dogs are welcome here. On hot days they get a bowl of water before you even ask.",
     "g.eb":"For coeliacs","g.h2":"What you'll want to know before you come",
     "g.lede":"If you eat gluten-free, you have questions before you even open the door. Here are the answers.",
     "g.q1":"What does “100 % gluten-free” mean here?","g.a1":"That there is no ingredient containing gluten anywhere in the bistro. Not a gluten-free option next to a regular kitchen, but one kitchen where gluten has never been.",
@@ -994,10 +1009,9 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     "g.q5":"How do I know the allergens?","g.a5":"We'll tell you for every dish at the counter, on the menu and in the daily menu. We buy from suppliers we know and read every label to the end.",
     "g.q6":"It's my first time. What should I say?","g.a6":"Nothing special. You don't ask if it can be made gluten-free here, because everything is. Just tell us if you have any other dietary needs so we can advise you.",
     "v.eb":"Find us","v.hours":"Opening hours","v.addr":"Address","v.map":"Open in maps →","v.call":"Call us","v.mail":"Or write to","v.good":"Good to know",
-    "v.goodp":"We're a short walk from the square and you can park right on the street. Children welcome. The entrance is not step-free and we take cash only.",
+    "v.goodp":"We're a short walk from the square and you can park right on the street. Children welcome. The entrance is not step-free.",
     "d.1":"Monday","d.2":"Tuesday","d.3":"Wednesday","d.4":"Thursday","d.5":"Friday","d.6":"Saturday","d.0":"Sunday",
-    "map.here":"U Vrzky","map.church":"St John's church","map.square":"main square","map.castle":"castle","map.pond":"Vajgar pond","map.n":"N","map.street":"Svatojánská",
-    "map.cap":"Schematic map. From the main square it's a three-minute walk.",
+    "map.cap":"From the main square it's a three-minute walk.",
     "r.count":"45 reviews<br>on Firmy.cz","r.q":"“Big choice, very tasty food, simply everything great.”",
     "r.src":"Guest review · Staff 4.9 · Food 5.0 · Ambience 5.0<br>Ratings taken from public profiles on Firmy.cz, Slevomat and Mňambezlepku.",
     "e.eb":"Events &amp; celebrations","e.h2":"We'll cook for your gathering too",
@@ -1012,8 +1026,10 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     "c.noteph":"E.g. lactose-free, message “Happy birthday, Anna”",
     "c.submit":"Send request","c.small":"Sample form, nothing is sent.",
     "c.ah":"Good to know","c.a1":"All cakes are gluten-free, lactose-free on request.","c.a2":"Please order at least three days ahead so we can bake in peace.",
-    "c.a3":"Collect at the bistro during opening hours, pay cash on pick-up.","c.a4":"The price depends on size and decoration; we'll tell you in the confirmation.",
+    "c.a3":"Collect at the bistro during opening hours, pay on pick-up.","c.a4":"The price depends on size and decoration; we'll tell you in the confirmation.",
     "c.from":"from","c.per":"for a cake for 6",
+    "rv.eb":"Reviews","rv.h2":"What our guests say","rv.lede":"Word for word, as they wrote it. Each one links to its source.",
+    "rv.src":"source","rv.anon":"Bistro guest","rv.a17":"17 people agree","rv.a20":"20 people agree",
     "f.up":"Top ↑","f.end":"Website proposal, not the business's official page. Prepared by <a href=\"mailto:info@filsns.cz\" style=\"color:var(--gold-ink);font-weight:500\">filsns s.r.o.</a> The bistro is operated by VIDČ FOOD s.r.o., company ID 19295952.",
     "mb.1":"Menu","mb.2":"Call",
     "alt.hero":"Breakfast plate with eggs, vegetables and tomatoes on light ceramic","alt.pekarna":"Bakery counter with freshly baked pastries","alt.interier":"Bright corner of a bistro with a counter, bar stools and a wooden table","alt.stul":"A laid table with plates of food and cups of coffee",
@@ -1068,7 +1084,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     "k.1h":"Keine Fertigprodukte","k.1p":"Alles, was Sie bei uns essen, haben wir selbst gebacken oder gekocht. Nichts kommt fertig an, und Zusatzstoffe kommen nicht ins Essen.",
     "k.2h":"Keine Kreuzkontamination","k.2p":"Im Bistro gibt es keine einzige Zutat mit Gluten. Sie müssen nicht überlegen, worin gebraten und womit geschnitten wurde.",
     "k.3h":"Familienbetrieb","k.3p":"Das Bistro führt Iveta Vrzáková. Wenn Sie etwas anpassen möchten, sagen Sie es direkt der Person, die kocht.",
-    "k.4h":"Nur Barzahlung","k.4p":"Karten leider noch nicht, bitte Bargeld mitnehmen. Der Eingang ist nicht barrierefrei.",
+    "k.4h":"Hunde willkommen","k.4p":"Hunde sind bei uns willkommen. An heißen Tagen bekommen sie eine Schale Wasser, bevor Sie danach fragen.",
     "g.eb":"Für Zöliakie-Betroffene","g.h2":"Was Sie vor dem Besuch wissen möchten",
     "g.lede":"Wer glutenfrei isst, hat Fragen, noch bevor er die Tür öffnet. Hier sind die Antworten.",
     "g.q1":"Was heißt bei Ihnen „100 % glutenfrei“?","g.a1":"Dass es im ganzen Bistro keine einzige glutenhaltige Zutat gibt. Keine glutenfreie Variante neben einer normalen Küche, sondern eine Küche, in der nie Gluten war.",
@@ -1078,10 +1094,9 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     "g.q5":"Wie erkenne ich Allergene?","g.a5":"Wir nennen sie Ihnen bei jedem Gericht an der Theke, auf der Karte und im Tagesmenü. Wir kaufen bei Lieferanten, die wir kennen, und lesen jedes Etikett bis zum Ende.",
     "g.q6":"Ich bin zum ersten Mal hier. Was soll ich sagen?","g.a6":"Nichts Besonderes. Bei uns fragen Sie nicht, ob es glutenfrei geht, denn alles geht. Sagen Sie uns nur, ob Sie noch eine andere Diät haben, damit wir Sie beraten können.",
     "v.eb":"Anfahrt","v.hours":"Öffnungszeiten","v.addr":"Adresse","v.map":"In Karten öffnen →","v.call":"Rufen Sie uns an","v.mail":"Oder schreiben Sie an","v.good":"Gut zu wissen",
-    "v.goodp":"Wir sind nur ein paar Schritte vom Platz entfernt, parken kann man direkt in der Straße. Kinder willkommen. Der Eingang ist nicht barrierefrei, Zahlung nur bar.",
+    "v.goodp":"Wir sind nur ein paar Schritte vom Platz entfernt, parken kann man direkt in der Straße. Kinder willkommen. Der Eingang ist nicht barrierefrei.",
     "d.1":"Montag","d.2":"Dienstag","d.3":"Mittwoch","d.4":"Donnerstag","d.5":"Freitag","d.6":"Samstag","d.0":"Sonntag",
-    "map.here":"U Vrzky","map.church":"Johanneskirche","map.square":"Hauptplatz","map.castle":"Schloss","map.pond":"Teich Vajgar","map.n":"N","map.street":"Svatojánská",
-    "map.cap":"Orientierungskarte. Vom Hauptplatz sind es drei Gehminuten.",
+    "map.cap":"Vom Hauptplatz sind es drei Gehminuten.",
     "r.count":"45 Bewertungen<br>auf Firmy.cz","r.q":"„Große Auswahl, sehr leckeres Essen, einfach alles super.“",
     "r.src":"Gästebewertung · Personal 4,9 · Essen 5,0 · Ambiente 5,0<br>Bewertungen aus den öffentlichen Profilen auf Firmy.cz, Slevomat und Mňambezlepku.",
     "e.eb":"Feiern &amp; Veranstaltungen","e.h2":"Wir kochen auch für Ihre Feier",
@@ -1096,8 +1111,10 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     "c.noteph":"z. B. laktosefrei, Aufschrift „Alles Gute, Anna“",
     "c.submit":"Anfrage senden","c.small":"Beispielformular, es wird nichts gesendet.",
     "c.ah":"Gut zu wissen","c.a1":"Alle Torten sind glutenfrei, auf Wunsch auch laktosefrei.","c.a2":"Bitte mindestens drei Tage im Voraus bestellen, damit wir in Ruhe backen können.",
-    "c.a3":"Abholung im Bistro während der Öffnungszeiten, Barzahlung bei Abholung.","c.a4":"Der Preis hängt von Größe und Verzierung ab, wir nennen ihn Ihnen in der Bestätigung.",
+    "c.a3":"Abholung im Bistro während der Öffnungszeiten, Zahlung bei Abholung.","c.a4":"Der Preis hängt von Größe und Verzierung ab, wir nennen ihn Ihnen in der Bestätigung.",
     "c.from":"ab","c.per":"für eine Torte für 6",
+    "rv.eb":"Bewertungen","rv.h2":"Was unsere Gäste sagen","rv.lede":"Wörtlich, so wie sie es geschrieben haben. Jede mit Link zur Quelle.",
+    "rv.src":"Quelle","rv.anon":"Gast des Bistros","rv.a17":"17 Personen bestätigen das","rv.a20":"20 Personen bestätigen das",
     "f.up":"Nach oben ↑","f.end":"Website-Entwurf, nicht die offizielle Seite des Betriebs. Erstellt von <a href=\"mailto:info@filsns.cz\" style=\"color:var(--gold-ink);font-weight:500\">filsns s.r.o.</a> Betreiber des Bistros ist VIDČ FOOD s.r.o., IČO 19295952.",
     "mb.1":"Karte","mb.2":"Anrufen",
     "alt.hero":"Frühstücksteller mit Eiern, Gemüse und Tomaten auf heller Keramik","alt.pekarna":"Bäckereitheke mit frisch gebackenem Gebäck","alt.interier":"Helle Ecke eines Bistros mit Theke, Barhockern und Holztisch","alt.stul":"Gedeckter Tisch mit Tellern und Kaffeetassen",
@@ -1135,6 +1152,8 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     $$("[data-i18n-ph]").forEach(function(el){ var k = el.getAttribute("data-i18n-ph"); el.setAttribute("placeholder", (l !== "cs" && k in d) ? d[k] : CS_PH[k]); });
     document.documentElement.lang = l;
     document.title = tr("_title");
+    var gm = document.getElementById("gmap");
+    if (gm && gm.src.indexOf("hl=" + l + "&") === -1) { gm.src = gm.src.replace(/hl=[a-z]{2}&/, "hl=" + l + "&"); }
     $$("#lang button").forEach(function(b){ b.classList.toggle("on", b.getAttribute("data-lang") === l); });
     try { localStorage.setItem("uvrzky-lang", l); } catch(e){}
     renderOpen();
