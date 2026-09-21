@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Bezlepkové Bistro U Vrzky — návrh webu</title>
+<title>Bezlepkové Bistro U Vrzky (návrh webu)</title>
 <meta name="description" content="Návrh webu pro Bezlepkové Bistro U Vrzky v Jindřichově Hradci. Nezávazná ukázka od filsns s.r.o.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -103,7 +103,7 @@ h1,h2,h3,h4{font-family:var(--disp);font-weight:600;margin:0;line-height:1.1;tex
 .sec-head h2{font-size:clamp(2rem,4.8vw,3.1rem);font-weight:500;margin-bottom:1rem}
 
 /* ---- lístek jako list papíru ---- */
-.paper-stage{position:relative;max-width:880px;margin:0 auto;padding:1.2rem 0 2.4rem}
+.paper-stage{position:relative;max-width:720px;margin:0 auto;padding:1.2rem 0 2.4rem}
 .paper-back{position:absolute;inset:1.2rem 0 2.4rem 0;background:#EDE3D2;transform:rotate(1.4deg);box-shadow:0 10px 30px -12px rgba(51,38,28,.35);pointer-events:none}
 .paper{
   position:relative;z-index:1;
@@ -115,42 +115,42 @@ h1,h2,h3,h4{font-family:var(--disp);font-weight:600;margin:0;line-height:1.1;tex
   transform:rotate(-.55deg);
   transition:transform .6s cubic-bezier(.2,.7,.2,1),box-shadow .6s;
   animation:paperSettle 1.1s cubic-bezier(.2,.7,.2,1) backwards;
-  padding:clamp(1.4rem,4vw,2.6rem);
+  padding:clamp(1.1rem,3vw,1.9rem);
 }
 .paper:hover{transform:rotate(0deg) translateY(-2px);box-shadow:0 1px 2px rgba(51,38,28,.10),0 22px 56px -16px rgba(51,38,28,.42),0 50px 90px -40px rgba(51,38,28,.35)}
 @keyframes paperSettle{from{transform:rotate(-1.6deg) translateY(14px)}to{transform:rotate(-.55deg) translateY(0)}}
 .paper::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.9;mix-blend-mode:multiply;
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>")}
-.pm-frame{position:relative;border:1px solid var(--gold);padding:clamp(1.3rem,3.5vw,2.4rem) clamp(1rem,3vw,2rem)}
+.pm-frame{position:relative;border:1px solid var(--gold);padding:clamp(1.1rem,3vw,1.9rem) clamp(.9rem,2.6vw,1.6rem)}
 .pm-frame::after{content:"";position:absolute;inset:5px;border:1px solid rgba(184,146,78,.45);pointer-events:none}
 .pm-corner{position:absolute;width:34px;height:34px;color:var(--gold-ink);z-index:2}
 .pm-corner.tl{top:-1px;left:-1px}
 .pm-corner.tr{top:-1px;right:-1px;transform:rotate(90deg)}
 .pm-corner.br{bottom:-1px;right:-1px;transform:rotate(180deg)}
 .pm-corner.bl{bottom:-1px;left:-1px;transform:rotate(270deg)}
-.pm-head{text-align:center;margin-bottom:clamp(1.6rem,3vw,2.4rem)}
+.pm-head{text-align:center;margin-bottom:clamp(1.3rem,2.5vw,1.8rem)}
 .pm-kicker{font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-ink);font-weight:600}
-.pm-title{font-family:var(--disp);font-size:clamp(2.6rem,6vw,3.8rem);font-weight:600;line-height:1;margin-top:.5rem;letter-spacing:.01em}
-.pm-sub{font-family:var(--disp);font-style:italic;font-size:clamp(1.15rem,2.2vw,1.45rem);color:var(--ink-soft);margin-top:.25rem}
+.pm-title{font-family:var(--disp);font-size:clamp(2.2rem,5vw,3rem);font-weight:600;line-height:1;margin-top:.5rem;letter-spacing:.01em}
+.pm-sub{font-family:var(--disp);font-style:italic;font-size:clamp(1.05rem,2vw,1.25rem);color:var(--ink-soft);margin-top:.25rem}
 .pm-orn{display:flex;align-items:center;gap:.8rem;justify-content:center;margin-top:1.1rem;color:var(--gold)}
 .pm-orn span{flex:0 0 clamp(50px,12vw,120px);height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
 .pm-orn span:last-child{background:linear-gradient(90deg,var(--gold),transparent)}
 .pm-orn i{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);display:block}
-.pm-cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.6rem,4vw,3rem) clamp(2rem,5vw,3.6rem)}
-.pm-sec + .pm-sec{margin-top:clamp(1.4rem,3vw,2.2rem)}
+.pm-cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.2rem,3vw,2rem) clamp(1.6rem,4vw,2.8rem)}
+.pm-sec + .pm-sec{margin-top:clamp(1.1rem,2.5vw,1.6rem)}
 .pm-sec h4{font-family:var(--sans);font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;font-weight:600;color:var(--gold-ink);display:flex;align-items:center;gap:.8rem;margin-bottom:.7rem}
 .pm-sec h4::after{content:"";flex:1;height:1px;background:rgba(184,146,78,.5)}
 .pm-sec h4 small{font-weight:300;letter-spacing:.06em;text-transform:none;color:var(--muted);font-size:.72rem}
-.pm-item{padding-block:.45rem}
+.pm-item{padding-block:.32rem}
 .pm-row{display:flex;align-items:baseline;gap:.5rem}
-.pm-name{font-family:var(--disp);font-size:1.18rem;font-weight:600;line-height:1.25}
+.pm-name{font-family:var(--disp);font-size:1.05rem;font-weight:600;line-height:1.25}
 .pm-dots{flex:1 1 auto;border-bottom:1px dotted rgba(51,38,28,.35);transform:translateY(-.22em);min-width:1rem}
-.pm-price{font-family:var(--disp);font-size:1.1rem;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
-.pm-desc{font-family:var(--disp);font-style:italic;font-size:.98rem;color:var(--ink-soft);line-height:1.4;margin-top:.1rem;font-weight:400}
-.pm-foot{margin-top:clamp(1.6rem,3vw,2.4rem);padding-top:1.1rem;border-top:1px solid rgba(184,146,78,.5);text-align:center;font-size:.82rem;color:var(--ink-soft);line-height:1.6;max-width:56ch;margin-inline:auto}
+.pm-price{font-family:var(--disp);font-size:1rem;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.pm-desc{font-family:var(--disp);font-style:italic;font-size:.9rem;color:var(--ink-soft);line-height:1.4;margin-top:.1rem;font-weight:400}
+.pm-foot{margin-top:clamp(1.2rem,2.5vw,1.8rem);padding-top:.9rem;border-top:1px solid rgba(184,146,78,.5);text-align:center;font-size:.78rem;color:var(--ink-soft);line-height:1.6;max-width:56ch;margin-inline:auto}
 .pm-foot em{display:block;margin-top:.5rem;font-family:var(--disp);font-style:italic;font-size:.92rem;color:var(--muted)}
-.pm-stamp{position:absolute;right:clamp(-6px,1vw,14px);bottom:clamp(30px,6vw,52px);width:clamp(104px,15vw,150px);height:auto;color:var(--sage);opacity:.78;transform:rotate(-11deg);mix-blend-mode:multiply;pointer-events:none;z-index:3}
-.menu-after{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(1.2rem,3vw,2.2rem);align-items:center;max-width:880px;margin:0 auto;padding-top:.6rem}
+.pm-stamp{position:absolute;right:clamp(-6px,1vw,14px);bottom:clamp(30px,6vw,52px);width:clamp(88px,12vw,118px);height:auto;color:var(--sage);opacity:.78;transform:rotate(-11deg);mix-blend-mode:multiply;pointer-events:none;z-index:3}
+.menu-after{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(1.2rem,3vw,2.2rem);align-items:center;max-width:720px;margin:0 auto;padding-top:.6rem}
 .menu-after img{width:132px;aspect-ratio:1;object-fit:cover}
 .menu-after p{font-size:.94rem;color:var(--ink-soft)}
 .menu-after p + p{margin-top:.5rem}
@@ -307,7 +307,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     <div>
       <p class="eyebrow">Jindřichův Hradec · Svatojánská 144</p>
       <h1>Celý lístek.<br><em>Bez lepku.</em> Bez ptaní.</h1>
-      <p class="hero-sub">Rodinné bistro v centru Hradce, kde si můžete objednat cokoliv z lístku — protože nic z toho lepek neobsahuje. Snídaně, obědy, čerstvě pečené bagety a dorty.</p>
+      <p class="hero-sub">Rodinné bistro v centru Hradce. Objednat si můžete cokoliv z lístku, lepek u nás nenajdete. Snídaně, obědy, čerstvě pečené bagety a dorty.</p>
       <div class="hero-cta">
         <a class="btn big" href="#listek">Podívat se na lístek</a>
         <a class="btn big line" href="tel:+420734718428">Zavolat a objednat</a>
@@ -326,8 +326,8 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
   <div class="wrap">
     <h2>V téhle kuchyni není mouka. Vůbec žádná.</h2>
     <div>
-      <p>Většina restaurací vám nabídne „bezlepkovou variantu“ — a vy pak musíte doufat, že ji nevaří na stejné pánvi a nekrájí na stejném prkně. Tady se ptát nemusíte.</p>
-      <p>Bistro je bezlepkové stoprocentně. Celý lístek, celá vitrína, všechno pečivo. Nemáme bezlepkový koutek, máme bezlepkový dům. Kromě lepku umíme vyjít vstříc i při bezlaktózové dietě — stačí říct při objednávce.</p>
+      <p>Většina restaurací má „bezlepkovou variantu“. A vy pak doufáte, že ji nevaří na stejné pánvi a nekrájí na stejném prkně. U nás se ptát nemusíte.</p>
+      <p>Bistro je bezlepkové celé. Lístek, vitrína i všechno pečivo. Nemáme bezlepkový koutek, máme bezlepkový dům. A když nemůžete laktózu, řekněte to při objednávce, poradíme si.</p>
     </div>
   </div>
 </section>
@@ -337,7 +337,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     <div class="sec-head">
       <p class="eyebrow">Lístek</p>
       <h2>Co u nás dostanete</h2>
-      <p class="lede">Nic nekupujeme hotové. Bagety pečeme každé ráno, omáčky, dezerty i dorty děláme sami a bez chemických přísad.</p>
+      <p class="lede">Nic nekupujeme hotové. Bagety pečeme každé ráno a omáčky, dezerty i dorty si děláme sami, bez chemie.</p>
     </div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -413,8 +413,8 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
           </div>
 
           <footer class="pm-foot">
-            Všechna jídla připravujeme bez lepku v kuchyni, kam lepek nikdy nevstoupil. Bezlaktózové úpravy rádi domluvíme. Ceny v Kč včetně DPH.
-            <em>Ukázkový lístek — kromě dvou snídaní z vašeho Facebooku jsou položky a ceny ilustrační.</em>
+            Všechno vaříme bez lepku, v kuchyni, kde lepek vůbec není. Bez laktózy to umíme taky, stačí říct. Ceny jsou v korunách včetně DPH.
+            <em>Ukázkový lístek. Kromě dvou snídaní z vašeho Facebooku jsou položky a ceny jen pro představu.</em>
           </footer>
 
           <svg class="pm-stamp" viewBox="0 0 160 160" aria-hidden="true">
@@ -434,7 +434,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     <div class="menu-after">
       <img src="img/pekarna.jpg" alt="Vitrína pekárny s čerstvě upečeným pečivem" width="1300" height="867" loading="lazy">
       <div>
-        <p><b>Denní menu.</b> Každé ráno vaříme jinak — aktuální nabídku vyvěšujeme sem a na Facebook, ať víte dopředu, na co se těšit.</p>
+        <p><b>Denní menu.</b> Každý den vaříme něco jiného. Nabídku dáváme ráno sem a na Facebook, ať víte dopředu, na co se těšit.</p>
         <p><b>S sebou.</b> Jídlo vám dáme do vratné REkrabičky. Záloha 80 Kč, kterou při vrácení dostanete zpátky.</p>
       </div>
       <button class="btn line" type="button" onclick="window.print()">Vytisknout lístek</button>
@@ -453,28 +453,28 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
         <span class="ic" aria-hidden="true">✳</span>
         <div>
           <h4>Žádné polotovary</h4>
-          <p>Všechno, co ochutnáte, si pečeme a vaříme sami. Nic nedovážíme hotové a nepoužíváme chemické přísady.</p>
+          <p>Všechno, co u nás ochutnáte, jsme upekli nebo uvařili sami. Nic hotového nedovážíme a chemii do jídla nedáváme.</p>
         </div>
       </div>
       <div class="fact">
         <span class="ic" aria-hidden="true">✓</span>
         <div>
           <h4>Bez rizika křížové kontaminace</h4>
-          <p>V provozovně nemáme žádnou lepkovou surovinu. Nemusíte řešit, na čem se to smažilo a čím se to krájelo.</p>
+          <p>V bistru nemáme jedinou surovinu s lepkem. Nemusíte řešit, na čem se to smažilo a čím se to krájelo.</p>
         </div>
       </div>
       <div class="fact">
         <span class="ic" aria-hidden="true">♥</span>
         <div>
           <h4>Rodinný podnik</h4>
-          <p>Bistro vede Iveta Vrzáková. Když budete něco potřebovat upravit, řeknete to přímo tomu, kdo to vaří.</p>
+          <p>Bistro vede Iveta Vrzáková. Když potřebujete něco upravit, řeknete to rovnou tomu, kdo vaří.</p>
         </div>
       </div>
       <div class="fact warn">
         <span class="ic" aria-hidden="true">!</span>
         <div>
           <h4>Platí se hotově</h4>
-          <p>Kartou zatím bohužel ne — vezměte si prosím hotovost. Vstup do bistra není bezbariérový.</p>
+          <p>Kartou zatím bohužel ne, vezměte si prosím hotovost. Vstup do bistra není bezbariérový.</p>
         </div>
       </div>
     </div>
@@ -519,7 +519,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
 
         <div class="blk">
           <h4>Dobré vědět</h4>
-          <p>Jsme kousek od centra, zastavit se dá přímo v ulici. Vhodné pro rodiny s dětmi. Vstup není bezbariérový a platí se hotově.</p>
+          <p>Jsme kousek od centra a zastavit se dá přímo v ulici. S dětmi jste vítaní. Vstup není bezbariérový a platí se hotově.</p>
         </div>
       </div>
       <img src="img/interier.jpg" alt="Světlý kout bistra s pultem, barovými stoličkami a dřevěným stolem" width="1300" height="1950" loading="lazy">
@@ -546,7 +546,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
       <div>
         <p class="eyebrow">Akce a oslavy</p>
         <h2>Uvaříme i pro vaši sešlost</h2>
-        <p class="lede">Bistro si u nás můžete zamluvit celé. Domluvíme menu podle toho, co máte rádi — a pořád platí, že nikdo z hostů nemusí řešit, co smí a nesmí.</p>
+        <p class="lede">Bistro si můžete zamluvit celé. Menu domluvíme podle toho, co máte rádi. A nikdo z vašich hostů nemusí řešit, co smí a co ne.</p>
         <ul>
           <li>Rodinné oslavy a narozeniny</li>
           <li>Firemní posezení a party</li>
@@ -565,15 +565,15 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
   <div class="wrap">
     <p class="eyebrow">Proč jste dostali tenhle odkaz</p>
     <h2>Tenhle web zatím neexistuje. Ale mohl by.</h2>
-    <p class="lede">Jsme filsns s.r.o. — Tomáš a Martin Filsochovi. Tuhle ukázku jsme vám postavili nezávazně a zadarmo, ze všeho, co jsme o vás našli na internetu. Nic si za ni neúčtujeme a nic po vás nechceme.</p>
-    <p class="lede" style="margin-top:1rem">Postavili jsme ji proto, že u vás je ta ztráta vidět nejvíc: <strong>lidé s celiakií hledají, kde se najíst, předem a na Googlu.</strong> Vy jste v Hradci jediní stoprocentně bezlepkoví — a najde vás jen ten, kdo o vás už ví.</p>
+    <p class="lede">Jsme Tomáš a Martin Filsochovi z filsns s.r.o. Tuhle ukázku jsme postavili zadarmo a nezávazně, z toho, co jsme o vás našli na internetu. Nic za ni nechceme.</p>
+    <p class="lede" style="margin-top:1rem">Udělali jsme ji, protože u vás je to nejvíc vidět: <strong>lidé s celiakií si hledají, kde se najíst, předem a na Googlu.</strong> Jste v Hradci jediní, kdo vaří úplně bez lepku. A přitom vás najde jen ten, kdo o vás už ví.</p>
 
     <div class="pgrid">
       <ul class="plist">
-        <li><span class="n">01</span><span><b>Na internetu o vás kolují tři různé otevírací doby.</b> Našli jsme je na třech portálech a každý tvrdí něco jiného — včetně toho, jestli máte v neděli otevřeno. Web je jediné místo, které to rozhodne.</span></li>
-        <li><span class="n">02</span><span><b>Google neví, že jste restaurace.</b> Facebook mu to neřekne. Se strukturovanými daty se můžete ukazovat i s otevírací dobou a hodnocením.</span></li>
-        <li><span class="n">03</span><span><b>Máte 5,0 z 45 hodnocení</b> a nikde to není vidět na prvním místě. To je nejlepší argument, jaký máte.</span></li>
-        <li><span class="n">04</span><span><b>Denní menu na webu, ne jen na Facebooku.</b> Kdo Facebook nemá, dnes se k vaší nabídce nedostane.</span></li>
+        <li><span class="n">01</span><span><b>Na internetu o vás kolují tři různé otevírací doby.</b> Na třech portálech jsou tři verze a liší se i v tom, jestli máte v neděli otevřeno. Web je jediné místo, které to může rozhodnout.</span></li>
+        <li><span class="n">02</span><span><b>Google neví, že jste restaurace.</b> Z Facebooku to nepozná. Když to má na webu správně zapsané, ukáže vás i s otevírací dobou a hodnocením.</span></li>
+        <li><span class="n">03</span><span><b>Máte 5,0 z 45 hodnocení</b> a nikde to není vidět hned. Přitom je to to nejlepší, co se o vás dá říct.</span></li>
+        <li><span class="n">04</span><span><b>Denní menu na webu, ne jen na Facebooku.</b> Kdo Facebook nemá, se dnes k vaší nabídce nedostane.</span></li>
         <li><span class="n">05</span><span><b>Vlastní adresa místo odkazu na sociální síť.</b> Dá se napsat na ceduli, účtenku i do Googlu.</span></li>
       </ul>
 
@@ -584,13 +584,13 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
             <li><b>Potvrdit otevírací dobu.</b> Použili jsme verzi z Firmy.cz, ale jistotu nemáme:</li>
           </ol>
           <div class="hoursconf">
-            <span>Firmy.cz — Po–Pá 8:00–18:00, So–Ne 8:30–18:00</span>
-            <span>Hradec žije — Po–Pá 7:30–18:30, So–Ne 8:30–18:30</span>
-            <span>Živéfirmy — Po–Pá 8:00–16:30, So 8:30–16:30, Ne zavřeno</span>
+            <span>Firmy.cz: Po–Pá 8:00–18:00, So–Ne 8:30–18:00</span>
+            <span>Hradec žije: Po–Pá 7:30–18:30, So–Ne 8:30–18:30</span>
+            <span>Živéfirmy: Po–Pá 8:00–16:30, So 8:30–16:30, Ne zavřeno</span>
           </div>
           <ol start="2" style="margin-top:1.1rem">
-            <li><b>Váš aktuální lístek s cenami.</b> Máme jen dvě ceny z vašeho Facebooku, zbytek jsme napsali bez cen.</li>
-            <li><b>Pár vlastních fotek.</b> Ty tady jsou ilustrační — vaše jídlo bude vypadat líp.</li>
+            <li><b>Váš aktuální lístek s cenami.</b> Máme jen dvě ceny z vašeho Facebooku, zbytek lístku je jen pro představu.</li>
+            <li><b>Pár vlastních fotek.</b> Ty tady jsou ilustrační, vaše jídlo bude vypadat líp.</li>
           </ol>
         </div>
 
@@ -600,7 +600,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
             <dt>E-mail</dt><dd><a href="mailto:info@filsns.cz">info@filsns.cz</a></dd>
             <dt>Telefon</dt><dd><a href="tel:+420792758396">792 758 396</a></dd>
           </dl>
-          <p style="margin-top:1.3rem;font-size:.93rem;color:#A79781">Kdyby vás to nezajímalo, nic se neděje — stačí neodpovědět a víc se neozveme.</p>
+          <p style="margin-top:1.3rem;font-size:.93rem;color:#A79781">Kdyby vás to nezajímalo, nic se neděje. Stačí neodpovědět a víc se neozveme.</p>
         </div>
       </div>
     </div>
@@ -612,7 +612,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     <span class="name">Bezlepkové Bistro U Vrzky</span>
     <span>Svatojánská 144/1, Jindřichův Hradec</span>
     <a href="tel:+420734718428">734 718 428</a>
-    <span class="end">Návrh webu, nikoli oficiální stránka podniku. Připravilo <a href="mailto:info@filsns.cz" style="color:var(--gold-ink);font-weight:500">filsns s.r.o.</a> Provozovatelem bistra je VIDČ FOOD s.r.o., IČO 19295952.</span>
+    <span class="end">Návrh webu, ne oficiální stránka podniku. Připravilo <a href="mailto:info@filsns.cz" style="color:var(--gold-ink);font-weight:500">filsns s.r.o.</a> Provozovatelem bistra je VIDČ FOOD s.r.o., IČO 19295952.</span>
   </div>
 </footer>
 
@@ -668,7 +668,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
   var t = HOURS[day], flag = document.getElementById("openflag"), txt = document.getElementById("openText");
 
   if (t && mins >= t[0] && mins < t[1]) {
-    txt.textContent = "Teď máme otevřeno — dnes do " + hhmm(t[1]);
+    txt.textContent = "Máme otevřeno, dnes do " + hhmm(t[1]);
   } else {
     flag.classList.add("shut");
     if (t && mins < t[0]) {
@@ -676,7 +676,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     } else {
       var d = day, n = null;
       for (var i = 0; i < 7; i++){ d = (d+1) % 7; if (HOURS[d]) { n = d; break; } }
-      txt.textContent = n === null ? "Zavřeno" : "Zavřeno — otevíráme " + NAMES[n] + " v " + hhmm(HOURS[n][0]);
+      txt.textContent = n === null ? "Zavřeno" : "Zavřeno, otevíráme " + NAMES[n] + " v " + hhmm(HOURS[n][0]);
     }
   }
   var row = document.querySelector('#hours [data-day="' + day + '"]');
