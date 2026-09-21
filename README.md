@@ -1,21 +1,13 @@
-# Návrh webu — Bezlepkové Bistro U Vrzky
+# Bistro U Klásku, ukázkový web
 
-Nezávazná ukázka připravená firmou **filsns s.r.o.** pro Bezlepkové Bistro U Vrzky
-(VIDČ FOOD s.r.o., IČO 19295952), Svatojánská 144/1, Jindřichův Hradec.
+Univerzální demo webu pro restaurace od **filsns s.r.o.** Podnik je smyšlený,
+všechny texty, ceny, recenze i kontakty jsou vymyšlené. Funkce jsou skutečné:
 
-**Není to oficiální web podniku.** Stránka je označená jako návrh v horní liště
-i v patičce a je vyloučená z indexace (`robots: noindex, nofollow`
-+ hlavička `X-Robots-Tag`), aby nekonkurovala skutečné prezentaci bistra.
+- jídelní lístek jako list papíru, tisknutelný jedním tlačítkem
+- tři jazyky (CZ / EN / DE), přepínač v menu, výchozí podle prohlížeče
+- sekce pro celiaky, objednávka dortu s validací, Google mapa, recenze
+- otevírací doba počítaná podle aktuálního dne a času
+- strukturovaná data (JSON-LD Restaurant), OG náhled pro sdílení odkazu
 
-## Zdroje údajů
-
-Adresa, telefony, e-mail, jednatelka a hodnocení pocházejí z veřejných profilů
-(Firmy.cz, Živéfirmy, Slevomat, Hradec žije, Mňambezlepku). Dvě ceny jsou
-z veřejných příspěvků na Facebooku. Fotografie jsou ilustrační (Unsplash).
-
-Otevírací doba se mezi zdroji liší ve třech verzích — použitá je verze
-z Firmy.cz a rozdíly jsou vypsané přímo na stránce v sekci nabídky.
-
-## Provoz
-
-Statický web bez buildu. `index.html` + `img/`.
+Statický web bez buildu: `index.html` + `img/`. Fotografie jsou ilustrační (Unsplash).
+Stránka je vyloučená z indexace, aby smyšlený podnik nekonkuroval skutečným.

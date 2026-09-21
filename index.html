@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Bezlepkové Bistro U Vrzky (návrh webu)</title>
-<meta name="description" content="Návrh webu pro Bezlepkové Bistro U Vrzky v Jindřichově Hradci. Nezávazná ukázka od filsns s.r.o.">
+<title>Bistro U Klásku</title>
+<meta name="description" content="Ukázkový web bezlepkového bistra od filsns s.r.o. Smyšlený podnik, skutečné funkce: lístek, tři jazyky, objednávky, mapa, recenze.">
 <meta name="theme-color" content="#F5EFE6">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='12'%20fill='#33261C'/%3E%3Ccircle%20cx='32'%20cy='32'%20r='23'%20fill='none'%20stroke='#B8924E'%20stroke-width='1.5'/%3E%3Ctext%20x='32'%20y='43'%20text-anchor='middle'%20font-family='Georgia,serif'%20font-size='32'%20font-weight='600'%20fill='#B8924E'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='12'%20fill='#33261C'/%3E%3Ccircle%20cx='32'%20cy='32'%20r='23'%20fill='none'%20stroke='#B8924E'%20stroke-width='1.5'/%3E%3Ctext%20x='32'%20y='43'%20text-anchor='middle'%20font-family='Georgia,serif'%20font-size='32'%20font-weight='600'%20fill='#B8924E'%3EK%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="cs_CZ">
-<meta property="og:site_name" content="Bezlepkové Bistro U Vrzky">
-<meta property="og:title" content="Bezlepkové Bistro U Vrzky (návrh webu)">
-<meta property="og:description" content="Celý lístek bez lepku, bez ptaní. Rodinné bistro v centru Jindřichova Hradce. Ukázkový návrh webu od filsns s.r.o.">
-<meta property="og:image" content="https://uvrzky-demo.vercel.app/img/hero.jpg">
+<meta property="og:site_name" content="Bistro U Klásku">
+<meta property="og:title" content="Bistro U Klásku (ukázkový web)">
+<meta property="og:description" content="Celý lístek bez lepku, bez ptaní. Ukázkový web bezlepkového bistra od filsns s.r.o.">
+<meta property="og:image" content="https://bistro-klasek-demo.vercel.app/img/hero.jpg">
 <meta property="og:image:width" content="1800">
 <meta property="og:image:height" content="1350">
 <meta name="twitter:card" content="summary_large_image">
@@ -378,8 +378,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
 .rc .q{font-family:var(--disp);font-style:italic;font-size:1.12rem;line-height:1.45;margin:.55rem 0 .95rem;color:var(--ink)}
 .rc .who{font-size:.8rem;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:.2rem .7rem;align-items:baseline}
 .rc .who b{font-weight:500;color:var(--ink)}
-.rc .who a{color:var(--gold-ink);text-decoration:none;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;margin-left:auto}
-.rc .who a:hover{text-decoration:underline;text-underline-offset:3px}
+.rc .who .src{color:var(--muted);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;margin-left:auto}
 @media (max-width:900px){ .reviews{grid-template-columns:repeat(2,minmax(0,1fr))} }
 @media (max-width:600px){ .reviews{grid-template-columns:1fr} .rc,.rc:hover,.js .rc.rv.in{transform:none} }
 
@@ -422,15 +421,15 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
 
 <div class="demobar">
   <div class="wrap">
-    <b data-i18n="demo.tag">Návrh webu</b>
-    <span data-i18n="demo.text">Tohle není oficiální web bistra. Je to nezávazná ukázka od filsns s.r.o. Fotky jsou ilustrační, údaje posbírané z veřejných zdrojů.</span>
-    <a href="#nabidka" data-i18n="demo.link">Kdo to poslal →</a>
+    <b data-i18n="demo.tag">Ukázkový web</b>
+    <span data-i18n="demo.text">Bistro U Klásku neexistuje. Texty, fotky, ceny, recenze i telefon jsou smyšlené. Jde o ukázku toho, jak může vypadat web vašeho podniku.</span>
+    <a href="#nabidka" data-i18n="demo.link">Chci takový web →</a>
   </div>
 </div>
 
 <nav class="nav" id="nav">
   <div class="wrap">
-    <a class="brand" href="#top"><b>U Vrzky</b><span data-i18n="brand.sub">100 % bezlepkové</span></a>
+    <a class="brand" href="#top"><b>U Klásku</b><span data-i18n="brand.sub">100 % bezlepkové</span></a>
     <div class="navlinks" id="navlinks">
       <a href="#listek" data-i18n="nav.listek">Lístek</a>
       <a href="#kuchyne" data-i18n="nav.kuchyne">Jak vaříme</a>
@@ -443,7 +442,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
       <div class="lang" id="lang" aria-label="Jazyk">
         <button type="button" data-lang="cs" class="on">CZ</button><button type="button" data-lang="en">EN</button><button type="button" data-lang="de">DE</button>
       </div>
-      <a class="navtel" href="tel:+420734718428">734 718 428</a>
+      <a class="navtel" href="tel:+420384123456">384 123 456</a>
       <a class="btn" href="#navsteva" data-i18n="nav.hours">Otevírací doba</a>
       <button class="navtoggle" id="navtoggle" aria-expanded="false" aria-controls="navlinks" data-i18n="nav.toggle">Menu</button>
     </div>
@@ -453,16 +452,16 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
 <header class="hero" id="top">
   <div class="wrap">
     <div>
-      <p class="eyebrow h-in">Jindřichův Hradec · Svatojánská 144</p>
+      <p class="eyebrow h-in">Jindřichův Hradec · Klásková 12</p>
       <h1 class="h-in" data-i18n="hero.h1">Celý lístek.<br><em>Bez lepku.</em> Bez ptaní.</h1>
       <p class="hero-sub h-in" data-i18n="hero.sub">Rodinné bistro v centru Hradce. Objednat si můžete cokoliv z lístku, lepek u nás nenajdete. Snídaně, obědy, čerstvě pečené bagety a dorty.</p>
       <div class="hero-cta h-in">
         <a class="btn big" href="#listek" data-i18n="hero.cta1">Podívat se na lístek</a>
-        <a class="btn big line" href="tel:+420734718428" data-i18n="hero.cta2">Zavolat a objednat</a>
+        <a class="btn big line" href="tel:+420384123456" data-i18n="hero.cta2">Zavolat a objednat</a>
       </div>
       <div class="hero-stat h-in">
-        <span data-i18n="hero.st1"><b>5,0</b> z 45 hodnocení na Firmy.cz</span>
-        <span data-i18n="hero.st2">Vaří <b>Iveta Vrzáková</b></span>
+        <span data-i18n="hero.st1"><b>4,9</b> ze 120 hodnocení na Googlu</span>
+        <span data-i18n="hero.st2">Vaří <b>Jana Klásková</b></span>
         <span data-i18n="hero.st3">Jídlo <b>s sebou</b> do REkrabiček</span>
       </div>
     </div>
@@ -529,7 +528,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
 
           <header class="pm-head">
             <p class="pm-kicker" data-i18n="pm.kicker">Bezlepkové bistro · Jindřichův Hradec</p>
-            <h3 class="pm-title">U Vrzky</h3>
+            <h3 class="pm-title">U Klásku</h3>
             <p class="pm-sub" data-i18n="pm.sub">Jídelní lístek</p>
             <div class="pm-orn" aria-hidden="true"><span></span><i></i><span></span></div>
           </header>
@@ -583,7 +582,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
 
           <footer class="pm-foot">
             <span data-i18n="pm.foot">Všechno vaříme bez lepku, v kuchyni, kde lepek vůbec není. Bez laktózy to umíme taky, stačí říct. Ceny jsou v korunách včetně DPH.</span>
-            <em data-i18n="pm.note">Ukázkový lístek. Kromě dvou snídaní z vašeho Facebooku jsou položky a ceny jen pro představu.</em>
+            <em data-i18n="pm.note">Ukázkový lístek. Položky i ceny jsou smyšlené.</em>
           </footer>
 
           <svg class="pm-stamp" viewBox="0 0 160 160" aria-hidden="true">
@@ -636,7 +635,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
         <span class="ic" aria-hidden="true"><svg><use href="#i-heart"/></svg></span>
         <div>
           <h4 data-i18n="k.3h">Rodinný podnik</h4>
-          <p data-i18n="k.3p">Bistro vede Iveta Vrzáková. Když potřebujete něco upravit, řeknete to rovnou tomu, kdo vaří.</p>
+          <p data-i18n="k.3p">Bistro vede Jana Klásková. Když potřebujete něco upravit, řeknete to rovnou tomu, kdo vaří.</p>
         </div>
       </div>
       <div class="fact rv" style="--d:.3s">
@@ -675,7 +674,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
   <div class="wrap">
     <div class="sec-head rv">
       <p class="eyebrow" data-i18n="v.eb">Kde nás najdete</p>
-      <h2>Svatojánská 144, Jindřichův Hradec</h2>
+      <h2>Klásková 12, Jindřichův Hradec</h2>
     </div>
     <div class="visit">
       <div class="rv">
@@ -696,15 +695,14 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
 
         <div class="blk">
           <h4 data-i18n="v.addr">Adresa</h4>
-          <p>Svatojánská 144/1<br>377 01 Jindřichův Hradec I</p>
-          <p style="margin-top:.7rem"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Bezlepkov%C3%A9+Bistro+u+Vrzky,+Svatoj%C3%A1nsk%C3%A1+144,+Jind%C5%99ich%C5%AFv+Hradec" target="_blank" rel="noopener" data-i18n="v.map">Otevřít v mapách →</a></p>
+          <p>Klásková 12<br>377 01 Jindřichův Hradec</p>
+          <p style="margin-top:.7rem"><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Jind%C5%99ich%C5%AFv+Hradec" target="_blank" rel="noopener" data-i18n="v.map">Otevřít v mapách →</a></p>
         </div>
 
         <div class="blk">
           <h4 data-i18n="v.call">Zavolejte nám</h4>
-          <a class="bigtel" href="tel:+420734718428">734 718 428</a><br>
-          <a class="bigtel sm" href="tel:+420776173132">776 173 132</a>
-          <p style="margin-top:.6rem"><span data-i18n="v.mail">Nebo napište na</span> <a class="maplink" href="mailto:bezlepkovebistro@gmail.com">bezlepkovebistro@gmail.com</a></p>
+          <a class="bigtel" href="tel:+420384123456">384 123 456</a>
+          <p style="margin-top:.6rem"><span data-i18n="v.mail">Nebo napište na</span> <a class="maplink" href="mailto:bistro@uklasku.cz">bistro@uklasku.cz</a></p>
         </div>
 
         <div class="blk">
@@ -714,8 +712,8 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
       </div>
 
       <figure class="map rv" style="--d:.12s">
-        <iframe id="gmap" src="https://www.google.com/maps?q=Bezlepkov%C3%A9+Bistro+u+Vrzky,+Svatoj%C3%A1nsk%C3%A1+144,+Jind%C5%99ich%C5%AFv+Hradec&z=16&hl=cs&output=embed" title="Mapa: Bezlepkové Bistro U Vrzky" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
-        <figcaption data-i18n="map.cap">Z náměstí Míru jste u nás za tři minuty pěšky.</figcaption>
+        <iframe id="gmap" src="https://www.google.com/maps?q=Jind%C5%99ich%C5%AFv+Hradec&z=15&hl=cs&output=embed" title="Mapa: ukázka" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <figcaption data-i18n="map.cap">Ukázková mapa. V ostré verzi ukazuje přesně váš podnik.</figcaption>
       </figure>
     </div>
   </div>
@@ -724,12 +722,12 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
 <section class="rev">
   <div class="wrap rv">
     <div class="score">
-      <b>5,0</b>
-      <span data-i18n="r.count">45 hodnocení<br>na Firmy.cz</span>
+      <b>4,9</b>
+      <span data-i18n="r.count">120 hodnocení<br>na Googlu</span>
     </div>
     <div>
-      <p class="revq" data-i18n="r.q">„Velký výběr, velice chutná jídla, prostě vše super.“</p>
-      <p class="revsrc" data-i18n="r.src">Recenze hosta · Personál 4,9 · Jídlo 5,0 · Prostředí 5,0<br>Hodnocení převzatá z veřejných profilů Firmy.cz, Slevomat a Mňambezlepku.</p>
+      <p class="revq" data-i18n="r.q">„Konečně místo, kde se nemusím u každého jídla ptát. A koláč jako od babičky.“</p>
+      <p class="revsrc" data-i18n="r.src">Ukázkové hodnocení<br>V ostré verzi se číslo i citace načítají z vašeho profilu na Googlu.</p>
     </div>
   </div>
 </section>
@@ -748,7 +746,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
           <li data-i18n="e.l4">Smuteční hostiny</li>
           <li data-i18n="e.l5">Dorty na objednávku</li>
         </ul>
-        <p style="margin-top:1.8rem"><a class="btn big" href="tel:+420734718428" data-i18n="e.cta">Domluvit termín telefonem</a></p>
+        <p style="margin-top:1.8rem"><a class="btn big" href="tel:+420384123456" data-i18n="e.cta">Domluvit termín telefonem</a></p>
       </div>
       <figure class="ph rv" style="--d:.12s"><img src="img/stul.jpg" alt="Prostřený stůl s talíři jídla a šálky kávy" data-i18n-alt="alt.stul" width="1300" height="867" loading="lazy"></figure>
     </div>
@@ -825,38 +823,38 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     <div class="sec-head rv">
       <p class="eyebrow" data-i18n="rv.eb">Recenze</p>
       <h2 data-i18n="rv.h2">Co o nás říkají hosté</h2>
-      <p class="lede" data-i18n="rv.lede">Doslova, tak jak to napsali. U každé je odkaz na zdroj.</p>
+      <p class="lede" data-i18n="rv.lede">Ukázkové texty. V ostré verzi sem stáhneme vaše skutečné recenze z Googlu, i s odkazem na každou z nich.</p>
     </div>
     <div class="reviews">
       <article class="rc rv" style="--r:-1.1deg;--d:.0s">
         <span class="stars" aria-label="5 z 5">★★★★★</span>
-        <p class="q">„Milá obsluha, výborné jídlo - měl jsem z denní nabídky cuketovou polévku a karbanátky s bramborovou kaší. Cenově velmi přístupné. Lze platit kartou.“</p>
-        <p class="who"><b>Stanislav Staněk</b><span>17. 8. 2026</span><a href="https://www.firmy.cz/detail/13538608-bezlepkove-bistro-u-vrzky-jindrichuv-hradec-i.html" target="_blank" rel="noopener"><span data-i18n="rv.src">zdroj</span>: Firmy.cz</a></p>
+        <p class="q">„Konečně místo, kde nemusím u každého jídla vyzvídat. Dala jsem si řízek se salátem a bylo to jako u mámy.“</p>
+        <p class="who"><b>Petra</b><span>srpen 2026</span><span class="src" data-i18n="rv.src">ukázka</span></p>
       </article>
       <article class="rc rv" style="--r:.8deg;--d:.08s">
         <span class="stars" aria-label="5 z 5">★★★★★</span>
-        <p class="q">„Jezdíme sem dá se říci pravidelně. Ráj pro bezlepkáře. Naposled, když jsme zde byli a venku bylo vedro, slečna servírka automaticky donesla i misku s vodou pro našeho pejska.“</p>
-        <p class="who"><b>Luboš Dufek</b><span>23. 7. 2025</span><a href="https://www.firmy.cz/detail/13538608-bezlepkove-bistro-u-vrzky-jindrichuv-hradec-i.html" target="_blank" rel="noopener"><span data-i18n="rv.src">zdroj</span>: Firmy.cz</a></p>
+        <p class="q">„Jezdíme sem z Třeboně kvůli koláčům. Syn má celiakii a tady si může vybrat cokoliv z vitríny.“</p>
+        <p class="who"><b>Martin</b><span>červenec 2026</span><span class="src" data-i18n="rv.src">ukázka</span></p>
       </article>
       <article class="rc rv" style="--r:-.6deg;--d:.16s">
         <span class="stars" aria-label="5 z 5">★★★★★</span>
-        <p class="q">„Všechno bez lepku za normální ceny. Já měla výbornou koprovku a na později koláček, který byl famózní 👌 obsluha i paní majitelka jsou moc milé, prostředí bistra je sympatické, není co vytknout.“</p>
-        <p class="who"><b>Kateřina Železná</b><span>15. 7. 2025</span><a href="https://www.firmy.cz/detail/13538608-bezlepkove-bistro-u-vrzky-jindrichuv-hradec-i.html" target="_blank" rel="noopener"><span data-i18n="rv.src">zdroj</span>: Firmy.cz</a></p>
+        <p class="q">„Snídaně za rozumné peníze, rychlá obsluha a paní majitelka si pamatuje, co kdo nesmí. To se jen tak nevidí.“</p>
+        <p class="who"><b>Lucie</b><span>červen 2026</span><span class="src" data-i18n="rv.src">ukázka</span></p>
       </article>
       <article class="rc rv" style="--r:1deg;--d:.24s">
         <span class="stars" aria-label="5 z 5">★★★★★</span>
-        <p class="q">„Skvělé prostředí i servis.“</p>
-        <p class="who"><b>Hana</b><span>2025</span><a href="https://www.slevomat.cz/podnik/184930-bezlepkove-bistro-u-vrzky" target="_blank" rel="noopener"><span data-i18n="rv.src">zdroj</span>: Slevomat</a></p>
+        <p class="q">„Objednali jsme dort na oslavu pro dvacet lidí. Nikdo nepoznal, že je bez lepku.“</p>
+        <p class="who"><b>Tomáš</b><span>květen 2026</span><span class="src" data-i18n="rv.src">ukázka</span></p>
       </article>
       <article class="rc rv" style="--r:-.9deg;--d:.32s">
-        
-        <p class="q">“All the food is 100% gluten-free and delicious.”</p>
-        <p class="who"><b><span data-i18n="rv.anon">Host bistra</span></b><span data-i18n="rv.a17">17 lidí to potvrdilo</span><a href="https://www.atly.com/gluten-free/location/Bezlepkov%C3%A9-Bistro-u-Vrzky" target="_blank" rel="noopener"><span data-i18n="rv.src">zdroj</span>: Atly</a></p>
+        <span class="stars" aria-label="5 z 5">★★★★★</span>
+        <p class="q">“Travelling with coeliac disease is stressful. Here I could just order. Great kulajda.”</p>
+        <p class="who"><b>Anna, Vienna</b><span>2026</span><span class="src" data-i18n="rv.src">ukázka</span></p>
       </article>
       <article class="rc rv" style="--r:.5deg;--d:.4s">
-        
-        <p class="q">“The gluten-free Czech dishes here are tasty and unique.”</p>
-        <p class="who"><b><span data-i18n="rv.anon">Host bistra</span></b><span data-i18n="rv.a20">20 lidí to potvrdilo</span><a href="https://www.atly.com/gluten-free/location/Bezlepkov%C3%A9-Bistro-u-Vrzky" target="_blank" rel="noopener"><span data-i18n="rv.src">zdroj</span>: Atly</a></p>
+        <span class="stars" aria-label="5 z 5">★★★★★</span>
+        <p class="q">„Endlich ein Lokal, wo ich nicht nachfragen muss. Das Schnitzel war großartig.“</p>
+        <p class="who"><b>Stefan, Linz</b><span>2026</span><span class="src" data-i18n="rv.src">ukázka</span></p>
       </article>
     </div>
   </div>
@@ -865,37 +863,30 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
 <section class="pitch" id="nabidka">
   <div class="wrap">
     <div class="rv">
-    <p class="eyebrow">Proč jste dostali tenhle odkaz</p>
-    <h2>Tenhle web zatím neexistuje. Ale mohl by.</h2>
-    <p class="lede">Jsme Tomáš a Martin Filsochovi z filsns s.r.o. Tuhle ukázku jsme postavili zadarmo a nezávazně, z toho, co jsme o vás našli na internetu. Nic za ni nechceme.</p>
-    <p class="lede" style="margin-top:1rem">Udělali jsme ji, protože u vás je to nejvíc vidět: <strong>lidé s celiakií si hledají, kde se najíst, předem a na Googlu.</strong> Jste v Hradci jediní, kdo vaří úplně bez lepku. A přitom vás najde jen ten, kdo o vás už ví.</p>
+    <p class="eyebrow">Pro majitele restaurací</p>
+    <h2>Takhle může vypadat web vašeho podniku</h2>
+    <p class="lede">Všechno nad touhle sekcí je ukázka: smyšlené bistro, smyšlené ceny i recenze. Ale každá funkce je skutečná a na vašem webu by fungovala přesně takhle.</p>
+    <p class="lede" style="margin-top:1rem">Ukázku jsme postavili jako bezlepkové bistro, protože na něm je nejlíp vidět, k čemu je web dobrý: <strong>host s omezením hledá, kde se najíst, předem a na Googlu.</strong> Stejně tak hledá rodina s dětmi, turista z Rakouska nebo firma, co shání místo na oslavu.</p>
     </div>
 
     <div class="pgrid">
       <ul class="plist rv">
-        <li><span class="n">01</span><span><b>Na internetu o vás kolují tři různé otevírací doby.</b> Na třech portálech jsou tři verze a liší se i v tom, jestli máte v neděli otevřeno. Web je jediné místo, které to může rozhodnout.</span></li>
-        <li><span class="n">02</span><span><b>Google neví, že jste restaurace.</b> Z Facebooku to nepozná. Když to má na webu správně zapsané, ukáže vás i s otevírací dobou a hodnocením.</span></li>
-        <li><span class="n">03</span><span><b>Máte 5,0 z 45 hodnocení</b> a nikde to není vidět hned. Přitom je to to nejlepší, co se o vás dá říct. Šest z nich jsme dali doslova na web, s odkazem na zdroj.</span></li>
-        <li><span class="n">04</span><span><b>Web mluví i anglicky a německy.</b> Hradec je půl hodiny od Rakouska a celiaci cestují s plánem, kde se najíst. Přepínač je vpravo nahoře.</span></li>
-        <li><span class="n">05</span><span><b>Dort si u vás objednají z mobilu.</b> Formulář dole přijde na váš e-mail, vy jen potvrdíte termín a cenu.</span></li>
+        <li><span class="n">01</span><span><b>Lístek jako list papíru, ne PDF.</b> Čte se v mobilu bez zvětšování, Google mu rozumí a jedním tlačítkem se vytiskne na stůl. Položky a ceny si měníte sami.</span></li>
+        <li><span class="n">02</span><span><b>Tři jazyky.</b> Přepínač vpravo nahoře přeloží celý web včetně lístku a formulářů. Host z Rakouska dostane němčinu automaticky podle svého telefonu.</span></li>
+        <li><span class="n">03</span><span><b>Objednávky přímo z webu.</b> Formulář na dort nebo rezervaci přijde na váš e-mail. Bez měsíčních poplatků cizí službě a bez cizího widgetu, který rozbije vzhled.</span></li>
+        <li><span class="n">04</span><span><b>Otevírací doba, která ví, kolik je hodin.</b> „Máme otevřeno, dnes do 18:00" se počítá samo, včetně zvýraznění dnešního dne a svátků.</span></li>
+        <li><span class="n">05</span><span><b>Recenze z Googlu, mapa, adresa.</b> Na jednom místě a se strukturovanými daty, aby vás vyhledávač ukázal i s hvězdičkami a otevírací dobou.</span></li>
+        <li><span class="n">06</span><span><b>Hotovo do dvou týdnů</b> od chvíle, kdy dodáte lístek a fotky. Doménu, hosting a HTTPS zařídíme.</span></li>
       </ul>
 
       <div class="rv" style="--d:.15s">
         <div class="need">
-          <h3>Co bychom od vás potřebovali</h3>
+          <h3>Co od vás potřebujeme</h3>
           <ol>
-            <li><b>Potvrdit otevírací dobu.</b> Použili jsme verzi z Firmy.cz, ale jistotu nemáme:</li>
-          </ol>
-          <div class="hoursconf">
-            <span>Firmy.cz: Po–Pá 8:00–18:00, So–Ne 8:30–18:00</span>
-            <span>Hradec žije: Po–Pá 7:30–18:30, So–Ne 8:30–18:30</span>
-            <span>Živéfirmy: Po–Pá 8:00–16:30, So 8:30–16:30, Ne zavřeno</span>
-          </div>
-          <ol start="2" style="margin-top:1.1rem">
-            <li><b>Váš aktuální lístek s cenami.</b> Máme jen dvě ceny z vašeho Facebooku, zbytek lístku je jen pro představu.</li>
-            <li><b>Pár vlastních fotek.</b> Ty tady jsou ilustrační, vaše jídlo bude vypadat líp.</li>
-            <li><b>Zkontrolovat sekci pro celiaky.</b> Napsali jsme ji podle toho, jak to u vás podle recenzí chodí. Cokoliv upravíme.</li>
-            <li><b>Potvrdit platbu kartou.</b> Firmy.cz uvádí jen hotovost, ale host v srpnu 2026 píše, že kartou zaplatil. Na web jsme to radši nedávali vůbec.</li>
+            <li><b>Lístek s cenami.</b> Stačí vyfotit ten, co máte na stole.</li>
+            <li><b>Otevírací dobu, adresu a telefon.</b> Přesně, ať na internetu nekolují tři verze.</li>
+            <li><b>Pár vlastních fotek.</b> Z telefonu stačí, nebo domluvíme fotografa. Stock fotky jídla poznají hosté na první pohled.</li>
+            <li><b>Hodinu vašeho času</b> na doladění textů, ať web mluví jako vy.</li>
           </ol>
         </div>
 
@@ -905,7 +896,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
             <dt>E-mail</dt><dd><a href="mailto:info@filsns.cz">info@filsns.cz</a></dd>
             <dt>Telefon</dt><dd><a href="tel:+420792758396">792 758 396</a></dd>
           </dl>
-          <p style="margin-top:1.3rem;font-size:.93rem;color:#A79781">Kdyby vás to nezajímalo, nic se neděje. Stačí neodpovědět a víc se neozveme.</p>
+          <p style="margin-top:1.3rem;font-size:.93rem;color:#A79781">Napište nám dvě věty o svém podniku a pošleme vám návrh a cenu. Nezávazně.</p>
         </div>
       </div>
     </div>
@@ -914,29 +905,29 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
 
 <footer>
   <div class="wrap foot">
-    <span class="name">Bezlepkové Bistro U Vrzky</span>
-    <span>Svatojánská 144/1, Jindřichův Hradec</span>
-    <a href="tel:+420734718428">734 718 428</a>
+    <span class="name">Bezlepkové bistro U Klásku</span>
+    <span>Klásková 12, Jindřichův Hradec</span>
+    <a href="tel:+420384123456">384 123 456</a>
     <a class="up" href="#top" data-i18n="f.up">Nahoru ↑</a>
-    <span class="end" data-i18n="f.end">Návrh webu, ne oficiální stránka podniku. Připravilo <a href="mailto:info@filsns.cz" style="color:var(--gold-ink);font-weight:500">filsns s.r.o.</a> Provozovatelem bistra je VIDČ FOOD s.r.o., IČO 19295952.</span>
+    <span class="end" data-i18n="f.end">Ukázkový web. Bistro U Klásku je smyšlený podnik. Vyrobilo <a href="mailto:info@filsns.cz" style="color:var(--gold-ink);font-weight:500">filsns s.r.o.</a></span>
   </div>
 </footer>
 
 <div class="mobar">
   <a class="btn line" href="#listek" data-i18n="mb.1">Lístek</a>
-  <a class="btn" href="tel:+420734718428" data-i18n="mb.2">Zavolat</a>
+  <a class="btn" href="tel:+420384123456" data-i18n="mb.2">Zavolat</a>
 </div>
 
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"Restaurant",
-  "name":"Bezlepkové Bistro U Vrzky",
+  "name":"Bezlepkové bistro U Klásku",
   "servesCuisine":["Česká","Bezlepková"],
   "priceRange":"$$",
   "telephone":"+420734718428",
-  "email":"bezlepkovebistro@gmail.com",
-  "address":{"@type":"PostalAddress","streetAddress":"Svatojánská 144/1","addressLocality":"Jindřichův Hradec","postalCode":"37701","addressCountry":"CZ"},
+  "email":"bistro@uklasku.cz",
+  "address":{"@type":"PostalAddress","streetAddress":"Klásková 12","addressLocality":"Jindřichův Hradec","postalCode":"37701","addressCountry":"CZ"},
   "openingHoursSpecification":[
     {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"},
     {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"08:30","closes":"18:00"}],
@@ -944,7 +935,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     {"@type":"MenuSection","name":"Snídaně","hasMenuItem":[
       {"@type":"MenuItem","name":"Anglická snídaně","offers":{"@type":"Offer","price":"179","priceCurrency":"CZK"}},
       {"@type":"MenuItem","name":"Sendvič Schwarzwälder a avokádo","offers":{"@type":"Offer","price":"149","priceCurrency":"CZK"}}]}]},
-  "aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"45"}
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"120"}
 }
 </script>
 
@@ -955,16 +946,16 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
   /* ================= překlady ================= */
   var I18N = {
   en: {
-    "demo.tag":"Website proposal",
-    "demo.text":"This is not the bistro's official website. It is a non-binding proposal by filsns s.r.o. Photos are illustrative; details were gathered from public sources.",
-    "demo.link":"Who sent this →",
+    "demo.tag":"Demo website",
+    "demo.text":"Bistro U Klásku does not exist. Texts, photos, prices, reviews and phone numbers are fictional. This is a showcase of what your restaurant's website could look like.",
+    "demo.link":"I want a site like this →",
     "brand.sub":"100 % gluten-free",
     "nav.listek":"Menu","nav.kuchyne":"How we cook","nav.pruvodce":"For coeliacs","nav.navsteva":"Find us","nav.akce":"Events","nav.dort":"Cakes",
     "nav.hours":"Opening hours","nav.toggle":"Menu",
     "hero.h1":"The whole menu.<br><em>Gluten-free.</em> No need to ask.",
     "hero.sub":"A family bistro in the centre of Jindřichův Hradec. Order anything on the menu, there is no gluten here. Breakfast, lunch, freshly baked baguettes and cakes.",
     "hero.cta1":"See the menu","hero.cta2":"Call to order",
-    "hero.st1":"<b>5.0</b> from 45 reviews on Firmy.cz","hero.st2":"Cooked by <b>Iveta Vrzáková</b>","hero.st3":"<b>Takeaway</b> in returnable boxes",
+    "hero.st1":"<b>4.9</b> from 120 Google reviews","hero.st2":"Cooked by <b>Jana Klásková</b>","hero.st3":"<b>Takeaway</b> in returnable boxes",
     "claim.h2":"There is no gluten in this kitchen. None at all.",
     "claim.p1":"Most restaurants have a “gluten-free option”. Then you hope it wasn't cooked in the same pan or cut on the same board. Here you don't have to ask.",
     "claim.p2":"The whole bistro is gluten-free. The menu, the counter and every pastry. We don't have a gluten-free corner, we have a gluten-free house. If you can't have lactose, tell us when ordering and we'll sort it out.",
@@ -990,7 +981,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     "m17n":"House baguette","m18n":"Cream puff","m18d":"Caramel, vanilla cream","m19n":"Poppy seed cake","m20n":"Cheesecake with fruit",
     "m21n":"Cake to order","m21d":"Order three days in advance","m21p":"from 650",
     "pm.foot":"Everything is cooked gluten-free, in a kitchen with no gluten at all. Lactose-free is possible too, just ask. Prices in CZK incl. VAT.",
-    "pm.note":"Sample menu. Apart from two breakfasts from your Facebook page, items and prices are illustrative.",
+    "pm.note":"Sample menu. Items and prices are fictional.",
     "stamp.ring":"100 % GLUTEN-FREE · HOMEMADE · ","stamp.a":"All","stamp.b":"from one kitchen",
     "ma.1":"<b>Daily menu.</b> We cook something different every day. We post it here and on Facebook in the morning so you know what to look forward to.",
     "ma.2":"<b>Takeaway.</b> We pack your food in a returnable box. 80 CZK deposit, refunded when you bring it back.",
@@ -998,7 +989,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     "k.eb":"How we do things","k.h2":"We make everything ourselves",
     "k.1h":"No ready-made products","k.1p":"Everything you taste here we baked or cooked ourselves. Nothing arrives ready-made and we don't put additives in the food.",
     "k.2h":"No cross-contamination risk","k.2p":"There isn't a single ingredient with gluten in the bistro. You don't have to wonder what it was fried in or cut with.",
-    "k.3h":"Family-run","k.3p":"The bistro is run by Iveta Vrzáková. If you need something adjusted, you tell the person who cooks it.",
+    "k.3h":"Family-run","k.3p":"The bistro is run by Jana Klásková. If you need something adjusted, you tell the person who cooks it.",
     "k.4h":"Dogs welcome","k.4p":"Dogs are welcome here. On hot days they get a bowl of water before you even ask.",
     "g.eb":"For coeliacs","g.h2":"What you'll want to know before you come",
     "g.lede":"If you eat gluten-free, you have questions before you even open the door. Here are the answers.",
@@ -1011,9 +1002,9 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     "v.eb":"Find us","v.hours":"Opening hours","v.addr":"Address","v.map":"Open in maps →","v.call":"Call us","v.mail":"Or write to","v.good":"Good to know",
     "v.goodp":"We're a short walk from the square and you can park right on the street. Children welcome. The entrance is not step-free.",
     "d.1":"Monday","d.2":"Tuesday","d.3":"Wednesday","d.4":"Thursday","d.5":"Friday","d.6":"Saturday","d.0":"Sunday",
-    "map.cap":"From the main square it's a three-minute walk.",
-    "r.count":"45 reviews<br>on Firmy.cz","r.q":"“Big choice, very tasty food, simply everything great.”",
-    "r.src":"Guest review · Staff 4.9 · Food 5.0 · Ambience 5.0<br>Ratings taken from public profiles on Firmy.cz, Slevomat and Mňambezlepku.",
+    "map.cap":"Sample map. On the live site it shows your exact location.",
+    "r.count":"120 reviews<br>on Google","r.q":"“Finally a place where I don't have to ask about every dish. And a cake like grandma's.”",
+    "r.src":"Sample rating<br>On the live site the number and quote are pulled from your Google profile.",
     "e.eb":"Events &amp; celebrations","e.h2":"We'll cook for your gathering too",
     "e.lede":"You can book the whole bistro. We'll plan the menu around what you like. And none of your guests has to worry about what they can and can't eat.",
     "e.l1":"Family celebrations and birthdays","e.l2":"Company get-togethers and parties","e.l3":"Small weddings","e.l4":"Funeral receptions","e.l5":"Cakes to order",
@@ -1028,28 +1019,28 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     "c.ah":"Good to know","c.a1":"All cakes are gluten-free, lactose-free on request.","c.a2":"Please order at least three days ahead so we can bake in peace.",
     "c.a3":"Collect at the bistro during opening hours, pay on pick-up.","c.a4":"The price depends on size and decoration; we'll tell you in the confirmation.",
     "c.from":"from","c.per":"for a cake for 6",
-    "rv.eb":"Reviews","rv.h2":"What our guests say","rv.lede":"Word for word, as they wrote it. Each one links to its source.",
-    "rv.src":"source","rv.anon":"Bistro guest","rv.a17":"17 people agree","rv.a20":"20 people agree",
-    "f.up":"Top ↑","f.end":"Website proposal, not the business's official page. Prepared by <a href=\"mailto:info@filsns.cz\" style=\"color:var(--gold-ink);font-weight:500\">filsns s.r.o.</a> The bistro is operated by VIDČ FOOD s.r.o., company ID 19295952.",
+    "rv.eb":"Reviews","rv.h2":"What our guests say","rv.lede":"Sample texts. On the live site we pull in your real Google reviews, each with a link.",
+    "rv.src":"sample","rv.anon":"Bistro guest","rv.a17":"17 people agree","rv.a20":"20 people agree",
+    "f.up":"Top ↑","f.end":"Demo website. Bistro U Klásku is a fictional business. Made by <a href=\"mailto:info@filsns.cz\" style=\"color:var(--gold-ink);font-weight:500\">filsns s.r.o.</a>",
     "mb.1":"Menu","mb.2":"Call",
     "alt.hero":"Breakfast plate with eggs, vegetables and tomatoes on light ceramic","alt.pekarna":"Bakery counter with freshly baked pastries","alt.interier":"Bright corner of a bistro with a counter, bar stools and a wooden table","alt.stul":"A laid table with plates of food and cups of coffee",
-    "_title":"Gluten-free Bistro U Vrzky (website proposal)",
+    "_title":"Bistro U Klásku (demo website)",
     "_open":"Open now, until {t} today","_opensAt":"Opening today at {t}","_closedNext":"Closed, we open {d} at {t}","_closed":"Closed",
     "_days":["on Sunday","on Monday","on Tuesday","on Wednesday","on Thursday","on Friday","on Saturday"],
     "_errName":"Please fill in your name.","_errPhone":"The phone number doesn't look right.","_errDate":"Please choose a date at least three days ahead.",
     "_ok":"<b>Sample only, nothing was sent.</b>On the live site the bistro would now receive an email: {s}. You would get a confirmation by the next day."
   },
   de: {
-    "demo.tag":"Website-Entwurf",
-    "demo.text":"Dies ist nicht die offizielle Website des Bistros, sondern ein unverbindlicher Entwurf von filsns s.r.o. Die Fotos sind Symbolbilder, die Angaben stammen aus öffentlichen Quellen.",
-    "demo.link":"Wer das geschickt hat →",
+    "demo.tag":"Demo-Website",
+    "demo.text":"Das Bistro U Klásku gibt es nicht. Texte, Fotos, Preise, Bewertungen und Telefonnummern sind erfunden. Dies ist ein Beispiel, wie die Website Ihres Betriebs aussehen könnte.",
+    "demo.link":"So eine Website will ich →",
     "brand.sub":"100 % glutenfrei",
     "nav.listek":"Speisekarte","nav.kuchyne":"Wie wir kochen","nav.pruvodce":"Für Zöliakie","nav.navsteva":"Anfahrt","nav.akce":"Feiern","nav.dort":"Torten",
     "nav.hours":"Öffnungszeiten","nav.toggle":"Menü",
     "hero.h1":"Die ganze Karte.<br><em>Glutenfrei.</em> Ohne Nachfragen.",
     "hero.sub":"Ein Familienbistro im Zentrum von Jindřichův Hradec. Bestellen Sie, was Sie möchten, Gluten gibt es bei uns nicht. Frühstück, Mittagessen, frisch gebackene Baguettes und Torten.",
     "hero.cta1":"Zur Speisekarte","hero.cta2":"Anrufen und bestellen",
-    "hero.st1":"<b>5,0</b> bei 45 Bewertungen auf Firmy.cz","hero.st2":"Es kocht <b>Iveta Vrzáková</b>","hero.st3":"<b>Zum Mitnehmen</b> in Mehrwegboxen",
+    "hero.st1":"<b>4,9</b> bei 120 Google-Bewertungen","hero.st2":"Es kocht <b>Jana Klásková</b>","hero.st3":"<b>Zum Mitnehmen</b> in Mehrwegboxen",
     "claim.h2":"In dieser Küche gibt es kein Gluten. Überhaupt keins.",
     "claim.p1":"Die meisten Restaurants haben eine „glutenfreie Variante“. Und Sie hoffen, dass sie nicht in derselben Pfanne gebraten und auf demselben Brett geschnitten wurde. Bei uns müssen Sie nicht fragen.",
     "claim.p2":"Das ganze Bistro ist glutenfrei. Die Karte, die Theke und das gesamte Gebäck. Wir haben keine glutenfreie Ecke, wir haben ein glutenfreies Haus. Wenn Sie keine Laktose vertragen, sagen Sie es bei der Bestellung, wir finden eine Lösung.",
@@ -1075,7 +1066,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     "m17n":"Hausgemachtes Baguette","m18n":"Windbeutel","m18d":"Karamell, Vanillecreme","m19n":"Mohnkuchen","m20n":"Cheesecake mit Obst",
     "m21n":"Torte auf Bestellung","m21d":"Bitte drei Tage im Voraus bestellen","m21p":"ab 650",
     "pm.foot":"Alles wird glutenfrei gekocht, in einer Küche ganz ohne Gluten. Laktosefrei geht auch, einfach sagen. Preise in CZK inkl. MwSt.",
-    "pm.note":"Beispielkarte. Außer zwei Frühstücken von Ihrer Facebook-Seite sind Positionen und Preise nur zur Veranschaulichung.",
+    "pm.note":"Beispielkarte. Positionen und Preise sind erfunden.",
     "stamp.ring":"100 % GLUTENFREI · HAUSGEMACHT · ","stamp.a":"Alles","stamp.b":"aus einer Küche",
     "ma.1":"<b>Tagesmenü.</b> Jeden Tag kochen wir etwas anderes. Morgens stellen wir es hier und auf Facebook ein, damit Sie wissen, worauf Sie sich freuen können.",
     "ma.2":"<b>Zum Mitnehmen.</b> Ihr Essen kommt in eine Mehrwegbox. 80 CZK Pfand, das Sie bei Rückgabe zurückbekommen.",
@@ -1083,7 +1074,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     "k.eb":"So läuft es bei uns","k.h2":"Wir machen alles selbst",
     "k.1h":"Keine Fertigprodukte","k.1p":"Alles, was Sie bei uns essen, haben wir selbst gebacken oder gekocht. Nichts kommt fertig an, und Zusatzstoffe kommen nicht ins Essen.",
     "k.2h":"Keine Kreuzkontamination","k.2p":"Im Bistro gibt es keine einzige Zutat mit Gluten. Sie müssen nicht überlegen, worin gebraten und womit geschnitten wurde.",
-    "k.3h":"Familienbetrieb","k.3p":"Das Bistro führt Iveta Vrzáková. Wenn Sie etwas anpassen möchten, sagen Sie es direkt der Person, die kocht.",
+    "k.3h":"Familienbetrieb","k.3p":"Das Bistro führt Jana Klásková. Wenn Sie etwas anpassen möchten, sagen Sie es direkt der Person, die kocht.",
     "k.4h":"Hunde willkommen","k.4p":"Hunde sind bei uns willkommen. An heißen Tagen bekommen sie eine Schale Wasser, bevor Sie danach fragen.",
     "g.eb":"Für Zöliakie-Betroffene","g.h2":"Was Sie vor dem Besuch wissen möchten",
     "g.lede":"Wer glutenfrei isst, hat Fragen, noch bevor er die Tür öffnet. Hier sind die Antworten.",
@@ -1096,9 +1087,9 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     "v.eb":"Anfahrt","v.hours":"Öffnungszeiten","v.addr":"Adresse","v.map":"In Karten öffnen →","v.call":"Rufen Sie uns an","v.mail":"Oder schreiben Sie an","v.good":"Gut zu wissen",
     "v.goodp":"Wir sind nur ein paar Schritte vom Platz entfernt, parken kann man direkt in der Straße. Kinder willkommen. Der Eingang ist nicht barrierefrei.",
     "d.1":"Montag","d.2":"Dienstag","d.3":"Mittwoch","d.4":"Donnerstag","d.5":"Freitag","d.6":"Samstag","d.0":"Sonntag",
-    "map.cap":"Vom Hauptplatz sind es drei Gehminuten.",
-    "r.count":"45 Bewertungen<br>auf Firmy.cz","r.q":"„Große Auswahl, sehr leckeres Essen, einfach alles super.“",
-    "r.src":"Gästebewertung · Personal 4,9 · Essen 5,0 · Ambiente 5,0<br>Bewertungen aus den öffentlichen Profilen auf Firmy.cz, Slevomat und Mňambezlepku.",
+    "map.cap":"Beispielkarte. Auf der echten Website zeigt sie genau Ihren Betrieb.",
+    "r.count":"120 Bewertungen<br>auf Google","r.q":"„Endlich ein Lokal, wo ich nicht bei jedem Gericht nachfragen muss. Und ein Kuchen wie von Oma.“",
+    "r.src":"Beispielbewertung<br>Auf der echten Website kommen Zahl und Zitat aus Ihrem Google-Profil.",
     "e.eb":"Feiern &amp; Veranstaltungen","e.h2":"Wir kochen auch für Ihre Feier",
     "e.lede":"Sie können das ganze Bistro reservieren. Das Menü stimmen wir auf Ihre Wünsche ab. Und keiner Ihrer Gäste muss überlegen, was er essen darf.",
     "e.l1":"Familienfeiern und Geburtstage","e.l2":"Firmenfeiern und Partys","e.l3":"Kleine Hochzeiten","e.l4":"Trauerfeiern","e.l5":"Torten auf Bestellung",
@@ -1113,19 +1104,19 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     "c.ah":"Gut zu wissen","c.a1":"Alle Torten sind glutenfrei, auf Wunsch auch laktosefrei.","c.a2":"Bitte mindestens drei Tage im Voraus bestellen, damit wir in Ruhe backen können.",
     "c.a3":"Abholung im Bistro während der Öffnungszeiten, Zahlung bei Abholung.","c.a4":"Der Preis hängt von Größe und Verzierung ab, wir nennen ihn Ihnen in der Bestätigung.",
     "c.from":"ab","c.per":"für eine Torte für 6",
-    "rv.eb":"Bewertungen","rv.h2":"Was unsere Gäste sagen","rv.lede":"Wörtlich, so wie sie es geschrieben haben. Jede mit Link zur Quelle.",
-    "rv.src":"Quelle","rv.anon":"Gast des Bistros","rv.a17":"17 Personen bestätigen das","rv.a20":"20 Personen bestätigen das",
-    "f.up":"Nach oben ↑","f.end":"Website-Entwurf, nicht die offizielle Seite des Betriebs. Erstellt von <a href=\"mailto:info@filsns.cz\" style=\"color:var(--gold-ink);font-weight:500\">filsns s.r.o.</a> Betreiber des Bistros ist VIDČ FOOD s.r.o., IČO 19295952.",
+    "rv.eb":"Bewertungen","rv.h2":"Was unsere Gäste sagen","rv.lede":"Beispieltexte. Auf der echten Website holen wir Ihre echten Google-Bewertungen, jede mit Link.",
+    "rv.src":"Beispiel","rv.anon":"Gast des Bistros","rv.a17":"17 Personen bestätigen das","rv.a20":"20 Personen bestätigen das",
+    "f.up":"Nach oben ↑","f.end":"Demo-Website. Das Bistro U Klásku ist ein erfundener Betrieb. Erstellt von <a href=\"mailto:info@filsns.cz\" style=\"color:var(--gold-ink);font-weight:500\">filsns s.r.o.</a>",
     "mb.1":"Karte","mb.2":"Anrufen",
     "alt.hero":"Frühstücksteller mit Eiern, Gemüse und Tomaten auf heller Keramik","alt.pekarna":"Bäckereitheke mit frisch gebackenem Gebäck","alt.interier":"Helle Ecke eines Bistros mit Theke, Barhockern und Holztisch","alt.stul":"Gedeckter Tisch mit Tellern und Kaffeetassen",
-    "_title":"Glutenfreies Bistro U Vrzky (Website-Entwurf)",
+    "_title":"Bistro U Klásku (Demo-Website)",
     "_open":"Jetzt geöffnet, heute bis {t}","_opensAt":"Heute öffnen wir um {t}","_closedNext":"Geschlossen, wir öffnen {d} um {t}","_closed":"Geschlossen",
     "_days":["am Sonntag","am Montag","am Dienstag","am Mittwoch","am Donnerstag","am Freitag","am Samstag"],
     "_errName":"Bitte Namen angeben.","_errPhone":"Die Telefonnummer sieht nicht richtig aus.","_errDate":"Bitte ein Datum mindestens drei Tage im Voraus wählen.",
     "_ok":"<b>Nur Beispiel, es wurde nichts gesendet.</b>Auf der echten Website bekäme das Bistro jetzt eine E-Mail: {s}. Sie erhielten bis zum nächsten Tag eine Bestätigung."
   }};
   I18N.cs = {
-    "_title":"Bezlepkové Bistro U Vrzky (návrh webu)",
+    "_title":"Bistro U Klásku (ukázkový web)",
     "_open":"Máme otevřeno, dnes do {t}","_opensAt":"Dnes otevíráme v {t}","_closedNext":"Zavřeno, otevíráme {d} v {t}","_closed":"Zavřeno",
     "_days":["v neděli","v pondělí","v úterý","ve středu","ve čtvrtek","v pátek","v sobotu"],
     "_errName":"Doplňte prosím jméno.","_errPhone":"Telefon nevypadá správně.","_errDate":"Vyberte prosím datum aspoň tři dny dopředu.",
@@ -1155,7 +1146,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
     var gm = document.getElementById("gmap");
     if (gm && gm.src.indexOf("hl=" + l + "&") === -1) { gm.src = gm.src.replace(/hl=[a-z]{2}&/, "hl=" + l + "&"); }
     $$("#lang button").forEach(function(b){ b.classList.toggle("on", b.getAttribute("data-lang") === l); });
-    try { localStorage.setItem("uvrzky-lang", l); } catch(e){}
+    try { localStorage.setItem("klasek-lang", l); } catch(e){}
     renderOpen();
     var ok = document.querySelector("#cakeForm .ok"); if (ok) ok.remove();
     document.getElementById("cakeErr").textContent = "";
@@ -1263,7 +1254,7 @@ footer{background:var(--sand-2);padding-block:2.4rem 3.2rem;font-size:.85rem;col
   /* ================= výchozí jazyk ================= */
   var want = null;
   try { want = new URLSearchParams(location.search).get("lang"); } catch(e){}
-  if (!want) { try { want = localStorage.getItem("uvrzky-lang"); } catch(e){} }
+  if (!want) { try { want = localStorage.getItem("klasek-lang"); } catch(e){} }
   if (!want) { var nl = (navigator.language || "cs").slice(0,2).toLowerCase(); want = (nl === "de" || nl === "en") ? nl : "cs"; }
   setLang(want);
 })();
